@@ -1,0 +1,5 @@
+dwm
+slstatus/slstatus
+config.def.h
+*.o
+*.rej
