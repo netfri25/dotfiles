@@ -1,0 +1,52 @@
+[colors.primary]
+background = "#0d0c0b"
+foreground = "#cccccc"
+
+[env]
+TERM = "xterm-256color"
+
+[cursor.style]
+shape = "Block"
+
+[cursor]
+# Set to false to disable completely
+smooth_motion = true
+# 0.0 = cursor is not moving, 1.0 = cursor moves instantly
+smooth_motion_factor = 1.0
+# 0.0 = broken, 1.0 = cursor shape is unaffected by movement
+smooth_motion_spring = 0.5
+# Limits how the cursor size may change
+smooth_motion_max_stretch_x = 2.0
+smooth_motion_max_stretch_y = 2.0
+# Override "block" cursor if you don't like how it looks in this fork
+# I prefer "underline"
+# block_replace_shape = "underline"
+
+[font]
+builtin_box_drawing = true
+size = 14.0
+
+[font.bold]
+family = "IosevkaCustomNerdFontComplete Nerd Font"
+style = "Bold"
+
+[font.bold_italic]
+family = "IosevkaCustomNerdFontComplete Nerd Font"
+style = "Bold Italic"
+
+[font.italic]
+family = "IosevkaCustomNerdFontComplete Nerd Font"
+style = "Italic"
+
+[font.normal]
+family = "IosevkaCustomNerdFontComplete Nerd Font"
+style = "Regular"
+
+[mouse]
+hide_when_typing = true
+
+[window]
+decorations = "full"
+dynamic_title = true
+resize_increments = false
+startup_mode = "Windowed"
