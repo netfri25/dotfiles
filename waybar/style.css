@@ -1,0 +1,45 @@
+* {
+    font-family: "Iosevka Custom, Varela Round, monospace, sans-serif";
+    font-weight: Normal;
+    font-size: 16px;
+}
+
+window#waybar {
+    /* border-radius: 16px; */
+    background: #181818;
+    color: #aaaaaa;
+}
+
+tooltip {
+    background: #181818;
+    border-radius: 10px;
+}
+
+tooltip label {
+    color: #aaaaaa;
+}
+
+#disk,
+#clock,
+#memory,
+#battery,
+#pulseaudio,
+#network,
+#bluetooth,
+#temperature,
+#backlight {
+    padding: 4px 16px;
+    /* background-color: rgba(255, 255, 255, 0.08); */
+}
+
+#battery.warning {
+    color: orange;
+}
+
+#battery.critical {
+    color: red;
+}
+
+#temperature.critical {
+    color: red;
+}
