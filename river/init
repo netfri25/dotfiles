@@ -64,8 +64,8 @@ riverctl map normal Super+Alt+Control L snap right
 
 # Super+Alt+Shift+{H,J,K,L} to resize views
 riverctl map normal Super+Alt+Shift H resize horizontal -100
-riverctl map normal Super+Alt+Shift J resize vertical 100
-riverctl map normal Super+Alt+Shift K resize vertical -100
+riverctl map normal Super+Alt+Shift J resize vertical -100
+riverctl map normal Super+Alt+Shift K resize vertical 100
 riverctl map normal Super+Alt+Shift L resize horizontal 100
 
 # Super + Left Mouse Button to move views
