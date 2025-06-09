@@ -12,7 +12,7 @@ CONFIGS=(
     neovide
     nvim
     river
-    rofi
+    fuzzel
     waybar
 )
 
