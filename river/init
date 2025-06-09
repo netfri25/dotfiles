@@ -217,7 +217,7 @@ riverctl map normal Super+Shift D spawn "$MONITOR_CONFIG"
 riverctl spawn "$MONITOR_CONFIG"
 
 # sound
-pipewire &
+riverctl spawn pipewire
 
 export XCURSOR_THEME=GoogleDot-Black
 export XCURSOR_SIZE=24
@@ -225,6 +225,6 @@ export XCURSOR_SIZE=24
 WAYLAND_DISPLAY=wayland-1
 XDG_CURRENT_DESKTOP=river
 
-waybar &
+riverctl spawn waybar
 
 exec dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river
