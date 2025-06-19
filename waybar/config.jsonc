@@ -1,168 +1,168 @@
 {
-	"position": "bottom",
-	// "margin": "8 16 0",
-	"mod": "dock",
-	"modules-left": [
+    "position": "bottom",
+    // "margin": "8 16 0",
+    "mod": "dock",
+    "modules-left": [
         "mpris",
-		"river/window"
-	],
+        "river/window"
+    ],
 
-	"modules-center": [
-		"clock"
-	],
+    "modules-center": [
+        "clock"
+    ],
 
-	"modules-right": [
+    "modules-right": [
         "cpu",
         "memory",
         "disk",
         "temperature",
         "pulseaudio#input",
         "pulseaudio#output",
-		"network",
-		"bluetooth",
+        "network",
+        "bluetooth",
         "battery",
-	],
+    ],
 
-	"network": {
-		"format-icons": [
-			"󰤟",
-			"󰤢",
-			"󰤥",
-			"󰤨"
-		],
-		"format-wifi": "{icon}",
-		"format-ethernet": "",
-		"format-linked": "󰄡",
-		"format-disabled": "x",
-		"format-disconnected": "󰤯",
-		"tooltip-format": "{essid} ({signalStrength}%) - {ipaddr}",
-		"tooltip-format-ethernet": "{ifname} - {ipaddr}",
-		"tooltip-format-disconnected": "Disconnected",
-		"tooltip-format-disabled": "Disabled",
-		"on-click": "wifi toggle"
-	},
-
-	"bluetooth": {
-		"format": "󰂯",
-		"format-disabled": "󰂲",
-		"format-connected": "󰂱 {num_connections}",
-		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+    "network": {
+        "format-icons": [
+            "󰤟",
+            "󰤢",
+            "󰤥",
+            "󰤨"
+        ],
+        "format-wifi": "{icon}",
+        "format-ethernet": "",
+        "format-linked": "󰄡",
+        "format-disabled": "x",
+        "format-disconnected": "󰤯",
+        "tooltip-format": "{essid} ({signalStrength}%) - {ipaddr}",
+        "tooltip-format-ethernet": "{ifname} - {ipaddr}",
+        "tooltip-format-disconnected": "Disconnected",
         "tooltip-format-disabled": "Disabled",
-		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
-		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
-		"on-click": "bluetooth toggle"
-	},
+        "on-click": "wifi toggle"
+    },
 
-	"battery": {
+    "bluetooth": {
+        "format": "󰂯",
+        "format-disabled": "󰂲",
+        "format-connected": "󰂱 {num_connections}",
+        "tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+        "tooltip-format-disabled": "Disabled",
+        "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+        "on-click": "bluetooth toggle"
+    },
+
+    "battery": {
         "interval": 5,
-		"full-at": 95,
-		"states": {
-			"warning": 50,
-			"critical": 30,
-		},
-		"format": "{icon}",
-		"format-plugged": "",
-		"format-charging": "󰂄",
-		"format-icons": [
-			"󰂎",
-			"󰁺",
-			"󰁻",
-			"󰁼",
-			"󰁽",
-			"󰁾",
-			"󰁿",
-			"󰂀",
-			"󰂁",
-			"󰂂",
-			"󰁹"
-		],
-		"tooltip-format": "{capacity}%\n{time}\n{power}W",
-		"tooltip-format-full": "{capacity}%",
-	},
+        "full-at": 95,
+        "states": {
+            "warning": 50,
+            "critical": 30,
+        },
+        "format": "{icon}",
+        "format-plugged": "",
+        "format-charging": "󰂄",
+        "format-icons": [
+            "󰂎",
+            "󰁺",
+            "󰁻",
+            "󰁼",
+            "󰁽",
+            "󰁾",
+            "󰁿",
+            "󰂀",
+            "󰂁",
+            "󰂂",
+            "󰁹"
+        ],
+        "tooltip-format": "{capacity}%\n{time}\n{power}W",
+        "tooltip-format-full": "{capacity}%",
+    },
 
-	"temperature": {
-		"hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
-		"input-filename": "temp1_input",
-		"format": " {temperatureC}°C",
-		"critical-threshold": 80
-	},
+    "temperature": {
+        "hwmon-path-abs": "/sys/devices/platform/coretemp.0/hwmon",
+        "input-filename": "temp1_input",
+        "format": " {temperatureC}°C",
+        "critical-threshold": 80
+    },
 
-	"pulseaudio#output": {
-		"format": "{icon} {volume}%",
-		"format-muted": "󰝟 0%",
+    "pulseaudio#output": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰝟 0%",
         "on-click-right": "pavucontrol",
         "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
-		"on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
-		"on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
-		"format-icons": {
+        "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
+        "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
+        "format-icons": {
             "default": ["", "", ""]
-		},
+        },
         "max-volume": 200,
         "scroll-step": 1,
-	},
+    },
 
-	"pulseaudio#input": {
-		"format-source": " {volume}%",
-		"format-source-muted": "  0%",
+    "pulseaudio#input": {
+        "format-source": " {volume}%",
+        "format-source-muted": "  0%",
         "format": "{format_source}",
-		"on-click-right": "pavucontrol",
+        "on-click-right": "pavucontrol",
         "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
-		"on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%",
-		"on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%",
+        "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%",
+        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%",
         "max-volume": 200,
         "scroll-step": 1,
-	},
+    },
 
-	"clock": {
-		"format": "{:%R %a %d/%m}",
-		"tooltip-format": "{calendar}",
-		"calendar": {
-			"format": {
-				"months": "<span color='#aaaaaa'>{}</span>",
-				"days": "<span color='#aaaaaa'>{}</span>",
-				"weekdays": "<span color='#bbbbbb'><b>{}</b></span>",
-				"today": "<span color='#bbbbbb'><b>{}</b></span>"
-			}
-		}
-	},
+    "clock": {
+        "format": "{:%R %a %d/%m}",
+        "tooltip-format": "{calendar}",
+        "calendar": {
+            "format": {
+                "months": "<span color='#aaaaaa'>{}</span>",
+                "days": "<span color='#aaaaaa'>{}</span>",
+                "weekdays": "<span color='#bbbbbb'><b>{}</b></span>",
+                "today": "<span color='#bbbbbb'><b>{}</b></span>"
+            }
+        }
+    },
 
-	"backlight": {
-		"device": "intel_backlight",
-		"format": "{icon} {percent}%",
-		"format-icons": [
-			"󰃞",
-			"󰃟",
-			"󰃠"
-		],
-		"on-scroll-up": "brightnessctl set 10%+",
-		"on-scroll-down": "brightnessctl set 10%-",
-		"min-length": 6
-	},
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": [
+            "󰃞",
+            "󰃟",
+            "󰃠"
+        ],
+        "on-scroll-up": "brightnessctl set 10%+",
+        "on-scroll-down": "brightnessctl set 10%-",
+        "min-length": 6
+    },
 
-	"pulseaudio#microphone": {
-		"format": "{format_source}",
-		"format-source": " {volume}%",
-		"format-source-muted": " Muted",
-		"on-click": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
-		"on-click-right": "pavucontrol",
-		"on-scroll-up": "wpctl set-volume -l 1.3 @DEFAULT_SOURCE@ 5%+",
-		"on-scroll-down": "wpctl set-volume -l 1.3 @DEFAULT_SOURCE@ 5%-",
-		"scroll-step": 5
-	},
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
+        "on-click": "wpctl set-mute @DEFAULT_SOURCE@ toggle",
+        "on-click-right": "pavucontrol",
+        "on-scroll-up": "wpctl set-volume -l 1.3 @DEFAULT_SOURCE@ 5%+",
+        "on-scroll-down": "wpctl set-volume -l 1.3 @DEFAULT_SOURCE@ 5%-",
+        "scroll-step": 5
+    },
 
     "cpu": {
-         "interval": 2,
-         "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}",
-         "format-icons": [
-              "<span color='#69ff94'>▁</span>", // green
-              "<span color='#2aa9ff'>▂</span>", // blue
-              "<span color='#f8f8f2'>▃</span>", // white
-              "<span color='#f8f8f2'>▄</span>", // white
-              "<span color='#ffffa5'>▅</span>", // yellow
-              "<span color='#ffffa5'>▆</span>", // yellow
-              "<span color='#ff9977'>▇</span>", // orange
-              "<span color='#dd532e'>█</span>"  // red
-         ]
+        "interval": 2,
+        "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}",
+        "format-icons": [
+            "<span color='#69ff94'>▁</span>", // green
+            "<span color='#2aa9ff'>▂</span>", // blue
+            "<span color='#f8f8f2'>▃</span>", // white
+            "<span color='#f8f8f2'>▄</span>", // white
+            "<span color='#ffffa5'>▅</span>", // yellow
+            "<span color='#ffffa5'>▆</span>", // yellow
+            "<span color='#ff9977'>▇</span>", // orange
+            "<span color='#dd532e'>█</span>"  // red
+        ]
     },
 
     "disk": {
