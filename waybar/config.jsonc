@@ -16,7 +16,8 @@
         "memory",
         "disk",
         "temperature",
-        "pulseaudio",
+        "pulseaudio#input",
+        "pulseaudio#output",
 		"network",
 		"bluetooth",
         "battery",
@@ -86,23 +87,30 @@
 		"critical-threshold": 80
 	},
 
-	"pulseaudio": {
+	"pulseaudio#output": {
 		"format": "{icon} {volume}%",
 		"format-muted": "󰝟 0%",
-		"on-click": "wpctl set-mute @DEFAULT_SINK@ toggle",
-		"on-click-right": "pavucontrol",
-		"on-scroll-up": "wpctl set-volume -l 2 @DEFAULT_SINK@ 5%+",
-		"on-scroll-down": "wpctl set-volume @DEFAULT_SINK@ 5%-",
-		"scroll-step": 5,
+        "on-click-right": "pavucontrol",
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+		"on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +1%",
+		"on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -1%",
 		"format-icons": {
-			"headphone": "󱡏",
-			"hands-free": "󱡏",
-			"headset": "󱡏",
-			"default": [
-				"",
-				""
-			]
-		}
+            "default": ["", "", ""]
+		},
+        "max-volume": 200,
+        "scroll-step": 1,
+	},
+
+	"pulseaudio#input": {
+		"format-source": " {volume}%",
+		"format-source-muted": "  0%",
+        "format": "{format_source}",
+		"on-click-right": "pavucontrol",
+        "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+		"on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +1%",
+		"on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -1%",
+        "max-volume": 200,
+        "scroll-step": 1,
 	},
 
 	"clock": {
