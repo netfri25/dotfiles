@@ -3,6 +3,7 @@
 	// "margin": "8 16 0",
 	"mod": "dock",
 	"modules-left": [
+        "mpris",
 		"river/window"
 	],
 
@@ -167,5 +168,17 @@
         "interval": 5,
         "format": "{used:4.2f}GiB",
         "tooltip-format": "{used:4.2f}GiB out of {total}GiB RAM\n{swapUsed:4.2f}GiB out of {swapTotal}GiB SWAP",
+    },
+
+    "mpris": {
+        "format": "{status_icon}",
+        "tooltip-format": "{player}: {dynamic}",
+        "dynamic-order": ["title", "artist"],
+        "dynamic-separator": " - ",
+        "status-icons": {
+            "playing": "",
+            "paused": "",
+            "stopped": "<>",
+        },
     }
 }
