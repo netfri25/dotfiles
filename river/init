@@ -167,7 +167,7 @@ do
 done
 
 # Make the focus always follow the cursor
-riverctl focus-follows-cursor always
+riverctl focus-follows-cursor normal
 
 # Set background and border color
 riverctl background-color 0x181818
