@@ -217,9 +217,6 @@ riverctl map normal Super+Shift D spawn "$MONITOR_CONFIG"
 # configure the monitor on startup
 riverctl spawn "$MONITOR_CONFIG"
 
-# sound
-riverctl spawn pipewire
-
 export XCURSOR_THEME=GoogleDot-Black
 export XCURSOR_SIZE=24
 
