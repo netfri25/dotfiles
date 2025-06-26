@@ -159,11 +159,11 @@ do
     riverctl map $mode Super F4 spawn "$BRI_RAISE"
     riverctl map $mode Super F3 spawn "$BRI_LOWER"
 
-    SAVE_SCREENSHOT='tee $HOME/Pictures/Screenshots/$(date +'Screenshot-from-%Y-%m-%d-%H-%M-%S').png | waycopy -t image/png'
+    SAVE_SCREENSHOT='tee $HOME/Pictures/Screenshots/$(date +"Screenshot-from-%Y-%m-%d-%H-%M-%S").png | waycopy -t image/png'
 
     # screenshot
     riverctl map $mode None Print spawn "slurp | grim -g - - | $SAVE_SCREENSHOT"
-    riverctl map $mode Shift Print spawn "grim - | $SAVE_SCREENSHOT"
+    riverctl map $mode Shift Print spawn "grim -c - | $SAVE_SCREENSHOT"
 done
 
 # Make the focus always follow the cursor
