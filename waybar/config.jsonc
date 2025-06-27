@@ -4,7 +4,7 @@
     "mod": "dock",
     "modules-left": [
         "mpris",
-        "river/window"
+        "hyprland/window"
     ],
 
     "modules-center": [
