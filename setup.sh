@@ -14,7 +14,6 @@ CONFIGS=(
     river
     fuzzel
     waybar
-    hypr
 )
 
 for item in "${CONFIGS[@]}"; do
