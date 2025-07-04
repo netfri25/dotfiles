@@ -170,6 +170,10 @@ riverctl input $touchpad natural-scroll enabled
 riverctl input $touchpad tap enabled
 riverctl input $touchpad tap-button-map left-right-middle
 
+# tablet config
+tablet="tablet*"
+riverctl input $tablet map-to-output HDMI-A-1
+
 # manually configure monitors
 riverctl map normal Super+Shift D spawn "wlr-randr --output eDP-1 --toggle"
 
