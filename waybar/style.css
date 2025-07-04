@@ -20,7 +20,7 @@ tooltip label {
 }
 
 #mpris {
-    padding: 4px 6px 4px 16px;
+    padding: 4px 6px 4px 14px;
 }
 
 #disk,
@@ -47,4 +47,27 @@ tooltip label {
 
 #temperature.critical {
     color: red;
+}
+
+#tags button {
+    border-radius: 0;
+    border: 2px solid;
+    border-color: #aaaaaa;
+    padding: 0px 0px;
+    margin: 2px;
+    min-width: 24px;
+    background: #181818;
+    transition: none;
+}
+
+#tags button.occupied {
+    background: #555555;
+}
+
+#tags button.focused {
+    background: #aaaaaa;
+}
+
+#tags button.urgent {
+    background: #555500;
 }

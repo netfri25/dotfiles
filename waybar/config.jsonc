@@ -3,6 +3,7 @@
     // "margin": "8 16 0",
     "mod": "dock",
     "modules-left": [
+        "river/tags",
         "mpris",
         "river/window"
     ],
@@ -22,6 +23,11 @@
         "bluetooth",
         "battery",
     ],
+
+    "river/tags": {
+        "num-tags": 5,
+        "tag-labels": ["", "", "", "", ""],
+    },
 
     "network": {
         "format-icons": [
