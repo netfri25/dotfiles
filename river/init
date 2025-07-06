@@ -1,5 +1,7 @@
 #!/bin/sh
 
+CONFIG="$HOME/.config/river"
+
 # See the river(1), riverctl(1), and filtile(1) man pages for complete
 # documentation.
 
@@ -127,8 +129,8 @@ riverctl map normal Super F4 spawn "$BRI_RAISE"
 riverctl map normal Super F3 spawn "$BRI_LOWER"
 
 # screenshot
-riverctl map normal None Print spawn "$(dirname 0)/screenshot/selection.sh"
-riverctl map normal Shift Print spawn "$(dirname 0)/screenshot/full.sh"
+riverctl map normal None Print spawn "$CONFIG/screenshot/selection.sh"
+riverctl map normal Shift Print spawn "$CONFIG/screenshot/full.sh"
 
 # cursor behavior
 riverctl focus-follows-cursor normal
@@ -184,7 +186,7 @@ export WAYLAND_DISPLAY=wayland-1
 export XDG_CURRENT_DESKTOP=river
 
 # autostart
-MONITOR_CONFIG="$(dirname 0)/config-monitor-wayland.sh"
+MONITOR_CONFIG="$CONFIG/config-monitor-wayland.sh"
 riverctl spawn "$MONITOR_CONFIG"
 riverctl spawn "filtile -view-padding 0 -outer-padding 0"
 riverctl spawn "wl-paste --type text --watch cliphist store"
