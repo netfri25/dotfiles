@@ -8,7 +8,7 @@ CONFIG="$HOME/.config/river"
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 
 # spawn applications
-riverctl map normal Super Return spawn alacritty
+riverctl map normal Super Return spawn $TERMINAL
 riverctl map normal Super S spawn fuzzel
 riverctl map normal Super V spawn "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
 
@@ -178,9 +178,6 @@ riverctl input $tablet map-to-output HDMI-A-1
 
 # manually configure monitors
 riverctl map normal Super+Shift D spawn "wlr-randr --output eDP-1 --toggle"
-
-export XCURSOR_THEME=GoogleDot-Black
-export XCURSOR_SIZE=24
 
 export WAYLAND_DISPLAY=wayland-1
 export XDG_CURRENT_DESKTOP=river

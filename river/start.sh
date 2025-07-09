@@ -29,6 +29,11 @@ eval $(gnome-keyring-daemon --start)
 export SSH_AUTH_SOCK
 export GNOME_KEYRING_CONTROL
 
+# other env
+export TERMINAL=alacritty
+export XCURSOR_THEME=GoogleDot-Black
+export XCURSOR_SIZE=24
+
 # sound
 pipewire &
 
