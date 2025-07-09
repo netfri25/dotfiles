@@ -20,7 +20,7 @@ trap cleanup EXIT
 eval $(dbus-launch --sh-syntax)
 
 # keyring
-eval $(gnome-keyring-daemon --start)
+eval $(gnome-keyring-daemon --start --components=ssh,secrets,gpg)
 
 # polkit
 /usr/libexec/xfce-polkit &
