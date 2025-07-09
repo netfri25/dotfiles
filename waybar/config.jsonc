@@ -3,7 +3,6 @@
     // "margin": "8 16 0",
     "mod": "dock",
     "modules-left": [
-        "river/tags",
         "mpris",
         "river/window"
     ],
