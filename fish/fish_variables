@@ -34,7 +34,7 @@ SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
 SETUVAR fish_prompt_pwd_dir_length:0
-SETUVAR fish_user_paths:/opt/dotnet\x1e/opt/koka/bin\x1e/opt/nvim/bin\x1e/home/netfri/go/bin\x1e/opt/arduino\x2dlsp\x1e/opt/helix/bin\x1e/opt/binary\x2dninja\x2dpersonal/binaryninja\x1e/opt/binary\x2dninja\x1e/opt/binary\x2dninja/bin\x1e/opt/fae\x1e/opt/zig\x1e/opt/pypy3/bin\x1e/opt/nvim\x2dlinux64/bin\x1e/home/netfri/\x2eghcup/bin\x1e/home/netfri/\x2elocal/bin\x1e/home/netfri/\x2epyenv/bin\x1e/home/netfri/\x2epyenv\x1e/home/netfri/\x2ecargo/bin
+SETUVAR fish_user_paths:/opt/nvim/bin\x1e/home/netfri/\x2elocal/bin\x1e/home/netfri/\x2ecargo/bin
 SETUVAR pure_begin_prompt_with_current_directory:true
 SETUVAR pure_check_for_new_release:false
 SETUVAR pure_color_at_sign:pure_color_mute
