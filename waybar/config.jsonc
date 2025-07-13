@@ -23,6 +23,10 @@
         "battery",
     ],
 
+    "river/window": {
+        "max-length": 80,
+    },
+
     "river/tags": {
         "num-tags": 5,
         "tag-labels": ["", "", "", "", ""],
