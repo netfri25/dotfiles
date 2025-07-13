@@ -20,7 +20,7 @@ tooltip label {
 }
 
 #mpris {
-    padding: 4px 6px 4px 14px;
+    padding: 4px 6px 2px 14px;
 }
 
 #disk,
@@ -33,7 +33,7 @@ tooltip label {
 #temperature,
 #window,
 #backlight {
-    padding: 4px 16px;
+    padding: 4px 14px;
     /* background-color: rgba(255, 255, 255, 0.08); */
 }
 
