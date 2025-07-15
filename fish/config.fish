@@ -15,8 +15,8 @@ set -x EDITOR "nvim"
 set -x VISUAL "nvim"
 set -x XBPS_DISTDIR "$HOME/.void-packages"
 
-export PAGER=nvimpager
-export MANPAGER=nvimpager
+export PAGER="nvimpager -p"
+export MANPAGER="nvimpager -p"
 
 # fix weird java issues
 set -x _JAVA_AWT_WM_NONREPARENTING 1
