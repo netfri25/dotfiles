@@ -139,7 +139,7 @@ riverctl set-cursor-warp on-output-change
 # colors
 riverctl background-color 0x181818
 riverctl border-color-focused 0x696355
-riverctl border-color-unfocused 0x444444
+riverctl border-color-unfocused 0x181818
 riverctl border-width 3
 
 # rules
