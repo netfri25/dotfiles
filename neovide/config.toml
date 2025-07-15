@@ -2,7 +2,6 @@ fork = true
 frame = "full"
 idle = true
 maximized = true
-neovim-bin = "/opt/nvim/bin/nvim"
 no-multigrid = false
 srgb = false
 tabs = false
