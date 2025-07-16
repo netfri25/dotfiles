@@ -175,7 +175,7 @@ riverctl input $touchpad pointer-accel 0.4
 
 # tablet config
 tablet="tablet*"
-riverctl input $tablet map-to-output HDMI-A-1
+riverctl input $tablet map-to-output DP-1
 
 # manually configure monitors
 riverctl map normal Super+Shift D spawn "wlr-randr --output eDP-1 --toggle"
