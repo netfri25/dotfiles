@@ -177,6 +177,10 @@ riverctl input $touchpad pointer-accel 0.4
 tablet="tablet*"
 riverctl input $tablet map-to-output DP-1
 
+# lid config
+riverctl map-switch normal lid open spawn "wlr-randr --output eDP-1 --on"
+riverctl map-switch normal lid close spawn "wlr-randr --output eDP-1 --off"
+
 # manually configure monitors
 riverctl map normal Super+Shift D spawn "wlr-randr --output eDP-1 --toggle"
 
