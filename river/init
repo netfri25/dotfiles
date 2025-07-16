@@ -121,8 +121,8 @@ riverctl map normal Alt F2 spawn "$MEDIA_PREV"
 riverctl map normal Alt F3 spawn "$MEDIA_NEXT"
 
 # brightness
-BRI_RAISE="brightnessctl set 2%+"
-BRI_LOWER="brightnessctl set 2%-"
+BRI_RAISE="brightnessctl set -e 1%+"
+BRI_LOWER="brightnessctl set -e 1%-"
 riverctl map normal None XF86MonBrightnessUp   spawn "$BRI_RAISE"
 riverctl map normal None XF86MonBrightnessDown spawn "$BRI_LOWER"
 riverctl map normal Super F4 spawn "$BRI_RAISE"
