@@ -171,6 +171,7 @@ riverctl input $touchpad disable-while-typing enabled
 riverctl input $touchpad natural-scroll enabled
 riverctl input $touchpad tap enabled
 riverctl input $touchpad tap-button-map left-right-middle
+riverctl input $touchpad pointer-accel 0.4
 
 # tablet config
 tablet="tablet*"
