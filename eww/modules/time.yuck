@@ -1,0 +1,5 @@
+(defpoll time-text :interval "5s" `date +"%H:%M %a %d/%m"`)
+
+(defwidget time []
+  (label :text time-text :class "time")
+)

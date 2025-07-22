@@ -1,0 +1,52 @@
+; battery percenage as a whole number.
+; todo: maybe make this a floating value
+(defpoll battery-perc
+  :initial 0
+  :interval "10s"
+  `cat /sys/class/power_supply/BAT1/capacity`
+)
+
+; one of: Charging, Not charging, Discharging
+(defpoll battery-status
+  :initial 0
+  :interval "2s"
+  `cat /sys/class/power_supply/BAT1/status`
+)
+
+(defpoll battery-watts
+  :initial 0
+  :interval "2s"
+  `~/.config/eww/battery-watts.sh`
+)
+
+(defwidget battery []
+  (overlay
+    (battery-progress
+      :value battery-perc
+      :status battery-status
+    )
+    (label
+      :text battery-perc
+      :class "text"
+    )
+  )
+)
+
+(defwidget battery-progress [value status]
+  (circular-progress
+    :value { status == "Not charging" ? 0 : value }
+    :thickness {progress-thickness}
+    :start-at 75
+    :height {height}
+    :width {height}
+    :class {
+      status == "Charging"
+      ? "circle-green"
+      : value < 30
+      ? "circle-red"
+      : status == "Discharging"
+      ? "circle-normal"
+      : "circle-normal"
+    }
+  )
+)

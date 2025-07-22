@@ -1,0 +1,56 @@
+
+(deflisten input-volume-perc :initial 0 "~/.config/eww/volume.sh input listen")
+
+(defwidget input-volume-progress [value]
+  (circular-progress
+    :value {
+      value == "muted"
+      ? 100
+      : value == 0
+      ? 0
+      : value % 100
+    }
+    :width {height}
+    :height {height}
+    :start-at 75
+    :thickness {progress-thickness}
+    :class {
+      value == "muted"
+      ? "circle-red"
+      : value >= 100
+      ? "circle-gray"
+      : "circle-normal"
+    }
+    :style {
+      value == "muted"
+      ? ""
+      : value >= 100
+      ? "background-color: white;"
+      : ""
+    }
+  )
+)
+
+; TODO: maybe use actual image icons instead of nerd font
+(defwidget input-volume-icon [value]
+  (label
+    :class "icon"
+    :text {
+      value == "muted"
+      ? ""
+      : ""
+    }
+  )
+)
+
+(defwidget input-volume []
+  (eventbox
+    :onscroll `~/.config/eww/volume.sh input {}`
+    :onclick `~/.config/eww/volume.sh input mute`
+    :onrightclick `pavucontrol &`
+    (overlay
+      (input-volume-progress :value input-volume-perc)
+      (input-volume-icon :value input-volume-perc)
+    )
+  )
+)

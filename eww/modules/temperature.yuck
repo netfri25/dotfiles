@@ -1,0 +1,44 @@
+; the temperature is given in mC (milli-celsius)
+(defpoll cpu-temp :interval "2s" :initial 0 "cat /sys/class/thermal/thermal_zone0/temp")
+
+(defwidget temperature []
+  (box
+    :orientation "h"
+    :spacing {spacing}
+    :class "progress-box"
+    :space-evenly false
+    (temperature-progress :value {cpu-temp / 1000})
+    (temperature-label :value {cpu-temp / 1000})
+  )
+)
+
+(defwidget temperature-label [value]
+  (label
+    :text "${value}°C"
+    :class {
+      value < 50
+      ? "text"
+      : value < 75
+      ? "text-yellow"
+      : "text-red"
+    }
+  )
+)
+
+(defwidget temperature-progress [value]
+  (progress
+    :class {
+      value < 40
+      ? "progress-cold"
+      : value < 55
+      ? "progress-normal"
+      : value < 70
+      ? "progress-warm"
+      : "progress-hot"
+    }
+    :orientation "v"
+    :flipped true
+    :value {value}
+    :height {height - 2}  ; -2 because of a vertical margin of 1px
+  )
+)

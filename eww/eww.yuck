@@ -1,0 +1,51 @@
+(defvar height 30)
+(defvar spacing 5)
+(defvar progress-thickness 4)
+
+(defwindow bar
+  :geometry (geometry
+    :x "0px"
+    :y "0px"
+    :width "100%"
+    :anchor "bottom center"
+  )
+  :stacking "bg"
+  :exclusive true
+  (box
+    (bar-body-left :class "bar")
+    (bar-body-middle :class "bar")
+    (bar-body-right :class "bar")
+  )
+)
+
+(defwidget bar-body-left []
+  (box
+    :orientation "h"
+    :halign "start"
+    :spacing {spacing}
+    (label :text "workspaces and window")
+  )
+)
+
+(defwidget bar-body-middle []
+  (time)
+)
+
+(defwidget bar-body-right []
+  (box
+    :orientation "h"
+    :halign "end"
+    :spacing {spacing}
+    :space-evenly false
+    (temperature)
+    (input-volume)
+    (output-volume)
+    (battery)
+  )
+)
+
+(include "modules/battery.yuck")
+(include "modules/output-volume.yuck")
+(include "modules/input-volume.yuck")
+(include "modules/time.yuck")
+(include "modules/temperature.yuck")

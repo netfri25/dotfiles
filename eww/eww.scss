@@ -1,0 +1,120 @@
+* {
+  all: unset;
+  font-family: "IosevkaCustomNerdFontComplete Nerd Font";
+  font-size: 14px;
+  color: #d8d8d8;
+}
+
+.bar {
+  background-color: #181818;
+}
+
+.time {
+  font-size: 16px;
+}
+
+.icon {
+  font-size: 1.25em;
+}
+
+.circle {
+  color: white;
+  background-color: gray;
+}
+
+.text {
+  font-family: "IosevkaCustomNerdFontComplete Nerd Font";
+  font-size: 14px;
+  color: #d8d8d8;
+}
+
+.text-normal {
+  @extend .text;
+}
+
+.text-yellow {
+  @extend .text;
+  color: yellow;
+}
+
+.text-red {
+  @extend .text;
+  color: red;
+}
+
+.circle-normal {
+  @extend .circle;
+}
+
+.circle-gray {
+  @extend .circle;
+  color: gray;
+}
+
+.circle-red {
+  @extend .circle;
+  color: red;
+}
+
+.circle-yellow {
+  @extend .circle;
+  color: yellow;
+}
+
+.circle-green {
+  @extend .circle;
+  color: green;
+}
+
+.progress-box {
+  margin: 1px 5px;
+}
+
+.progress {
+  $radius: 4px;
+  $width: 7px;
+
+  trough {
+    min-height: 1px;
+
+    background-color: gray;
+    min-width: $width;
+
+    progress {
+      min-width: $width;
+      background-color: white;
+    }
+  }
+}
+
+.progress-cold {
+  @extend .progress;
+  trough {
+    progress {
+      background-color: cyan;
+    }
+  }
+}
+
+.progress-normal {
+  @extend .progress;
+}
+
+.progress-warm {
+  @extend .progress;
+  trough {
+    progress {
+      background-color: yellow;
+    }
+  }
+}
+
+.progress-hot {
+  @extend .progress;
+  trough {
+    progress {
+      background-color: red;
+    }
+  }
+}
+
