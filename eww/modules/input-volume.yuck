@@ -18,15 +18,8 @@
       value == "muted"
       ? "circle-red"
       : value >= 100
-      ? "circle-gray"
+      ? "circle-inverse"
       : "circle-normal"
-    }
-    :style {
-      value == "muted"
-      ? ""
-      : value >= 100
-      ? "background-color: white;"
-      : ""
     }
   )
 )
