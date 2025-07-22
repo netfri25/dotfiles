@@ -46,7 +46,7 @@ style = "Regular"
 hide_when_typing = true
 
 [window]
-decorations = "full"
+decorations = "none"
 dynamic_title = true
 resize_increments = false
-startup_mode = "Windowed"
+# startup_mode = "Windowed"
