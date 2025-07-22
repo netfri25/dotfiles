@@ -16,15 +16,16 @@ $fg-color: $gray2-color;
   background-color: $bg-color;
 }
 
-.icon {
-  font-size: 17px;
-  color: $gray2-color;
-}
-
 .text {
   font-family: "IosevkaCustomNerdFontComplete Nerd Font";
   font-size: 14px;
   color: $fg-color;
+}
+
+.icon {
+  @extend .text;
+  font-size: 17px;
+  color: $gray2-color;
 }
 
 .time {
