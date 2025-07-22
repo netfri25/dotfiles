@@ -47,6 +47,10 @@ $fg-color: $gray2-color;
   color: red;
 }
 
+.disk {
+  @extend .text;
+  padding: 0px 4px;
+}
 
 tooltip {
   @extend .text;

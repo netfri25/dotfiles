@@ -1,0 +1,11 @@
+(defpoll disk-used-perc :interval "30s" :initial "0%" "df --output=pcent / | tail -1 | tr -d ' '")
+(defpoll disk-used-size :interval "30s" :initial "0%" "df --output=used / | tail -1 | tr -d ' ' | numfmt --from-unit=1024 --to=iec --format %.2f")
+(defpoll disk-size :interval "1h" :initial "0%" "df --output=size / | tail -1 | tr -d ' ' | numfmt --from-unit=1024 --to=iec --format %.2f")
+
+(defwidget disk-usage []
+  (label
+    :text "${disk-used-perc}(/)"
+    :tooltip "${disk-used-size} out of ${disk-size} on /"
+    :class "disk"
+  )
+)
