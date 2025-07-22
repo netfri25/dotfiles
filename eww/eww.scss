@@ -33,15 +33,6 @@ $fg-color: $gray2-color;
   font-size: 18px;
 }
 
-tooltip {
-  @extend .text;
-  background-clip: border-box;
-  background-color: $bg-color;
-  font-size: 17px;
-  border: 1px solid $gray0-color;
-  border-radius: 7px;
-}
-
 .text-normal {
   @extend .text;
 }
@@ -54,6 +45,16 @@ tooltip {
 .text-red {
   @extend .text;
   color: red;
+}
+
+
+tooltip {
+  @extend .text;
+  background-clip: border-box;
+  background-color: $bg-color;
+  font-size: 17px;
+  border: 1px solid $gray0-color;
+  border-radius: 7px;
 }
 
 .circle {
