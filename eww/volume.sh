@@ -35,9 +35,17 @@ is_mute() {
     pactl get-"$name"-mute "$sink" | grep -q "yes"
 }
 
+get_volume_or_mute() {
+    if is_mute; then
+        echo "muted"
+    else
+        get_volume
+    fi
+}
+
 listen() {
     pactl subscribe | grep --line-buffered "$name" | while read -r line; do
-        get_volume
+        get_volume_or_mute
     done
 }
 
@@ -88,7 +96,7 @@ case "$2" in
         pactl set-"$name"-mute "$sink" toggle
         ;;
     listen)
-        get_volume
+        get_volume_or_mute
         listen
         ;;
     *)
