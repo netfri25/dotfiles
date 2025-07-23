@@ -1,0 +1,19 @@
+(defpoll swap-total-kb :interval "5s" :initial "0" `awk '/SwapTotal/ {print $2}' /proc/meminfo`)
+(defpoll swap-free-kb :interval "5s" :initial "0" `awk '/SwapFree/ {print $2}' /proc/meminfo`)
+
+(defwidget memory-usage-definition [used-ram total-ram used-swap total-swap]
+  (label
+    :text {used-ram}
+    :tooltip "RAM:  ${used-ram} out of ${total-ram}\nSWAP: ${used-swap} out of ${total-swap}"
+    :class "disk"
+  )
+)
+
+(defwidget memory-usage []
+  (memory-usage-definition
+    :used-ram {replace(formatbytes(floor(EWW_RAM.used_mem)), " ", "")}
+    :total-ram {replace(formatbytes(floor(EWW_RAM.total_mem)), " ", "")}
+    :used-swap {replace(formatbytes((swap-total-kb - swap-free-kb) * 1024), " ", "")}
+    :total-swap {replace(formatbytes(swap-total-kb * 1024), " ", "")}
+  )
+)
