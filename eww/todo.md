@@ -35,8 +35,8 @@
  - [x] hover window with  <used in GiB> out of <total in GiB> (<free in GiB>)
 
 ### ram usage
- - [ ] used ram in GiB
- - [ ] hover window with additional information for both ram and swap (used out of total)
+ - [x] used ram in GiB
+ - [x] hover window with additional information for both ram and swap (used out of total)
 
 ### cpu usage
  - [ ] total cpu usage in percentage
