@@ -26,7 +26,7 @@
 
 (defwidget output-volume []
   (eventbox
-    :onscroll `~/.config/eww/volume.sh output {} &`
+    :onscroll `~/.config/eww/volume.sh output {}`
     :onclick `~/.config/eww/volume.sh output mute`
     :onrightclick `pavucontrol &`
     (overlay

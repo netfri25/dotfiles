@@ -1,26 +1,38 @@
 #!/bin/bash
 
+COOLDOWN_MS=25
+STATE_FILE="/tmp/eww-volume-scroll"
+
 INPUT_LIMIT=150
 OUTPUT_LIMIT=100
 limit=0
 sink=""
 name=""
 
-get_volume() {
-    output=$(wpctl get-volume "$sink" | tr -d '.')
-
-    # remove prefix
-    prefix="Volume: "
-    output="${output#$prefix}"
-
-    # remove all leading zeros
-    output=$(echo $output | sed 's/^0*\([0-9]\)/\1/')
-
-    if echo "$output" | grep -q "MUTED"; then
-        echo "muted"
-    else
-        echo "$output"
+debounce() {
+    now=$(date +%s%3N) # milliseconds
+    if [[ -f "$STATE_FILE" ]]; then
+        last=$(cat "$STATE_FILE")
+        delta=$((now - last))
+        if ((delta < COOLDOWN_MS)); then
+            exit 0
+        fi
     fi
+
+    echo "$now" > "$STATE_FILE"
+}
+
+get_volume() {
+    local line
+    read -r line < <(pactl get-"$name"-volume "$sink")
+    local percent="${line#* / }"
+    percent="${percent%%\%*}"
+    percent="${percent#"${percent%%[![:space:]]*}"}"
+    echo "$percent"
+}
+
+is_mute() {
+    pactl get-"$name"-mute "$sink" | grep -q "yes"
 }
 
 listen() {
@@ -35,12 +47,12 @@ usage() {
 
 case "$1" in
     input)
-        sink="@DEFAULT_AUDIO_SOURCE@"
+        sink="@DEFAULT_SOURCE@"
         name="source"
         limit="$INPUT_LIMIT"
         ;;
     output)
-        sink="@DEFAULT_AUDIO_SINK@"
+        sink="@DEFAULT_SINK@"
         name="sink"
         limit="$OUTPUT_LIMIT"
         ;;
@@ -52,28 +64,28 @@ esac
 
 case "$2" in
     up)
-        volume=$(get_volume)
-        if [[ "$volume" == "muted" ]]; then
+        if is_mute; then
             exit 0
         fi
+        volume=$(get_volume)
 
         # NOTE: won't really work with steps that are more than 1%
         if [[ "$volume" -ge "$limit" ]]; then
-            wpctl set-volume "$sink" "$limit%"
+            pactl set-"$name"-volume "$sink" "$limit%"
         else
-            wpctl set-volume "$sink" 1%+
+            pactl set-"$name"-volume "$sink" +1%
         fi
         ;;
     down)
-        volume=$(get_volume)
-        if [[ "$volume" == "muted" ]]; then
+        if is_mute; then
             exit 0
         fi
+        volume=$(get_volume)
 
-        wpctl set-volume "$sink" 1%-
+        pactl set-"$name"-volume "$sink" -1%
         ;;
     mute)
-        wpctl set-mute "$sink" toggle
+        pactl set-"$name"-mute "$sink" toggle
         ;;
     listen)
         get_volume
@@ -84,4 +96,3 @@ case "$2" in
         exit 1
         ;;
 esac
-

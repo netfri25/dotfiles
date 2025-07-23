@@ -38,7 +38,7 @@
 
 (defwidget input-volume []
   (eventbox
-    :onscroll `~/.config/eww/volume.sh input {} &`
+    :onscroll `~/.config/eww/volume.sh input {}`
     :onclick `~/.config/eww/volume.sh input mute`
     :onrightclick `pavucontrol &`
     (overlay
