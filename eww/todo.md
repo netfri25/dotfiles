@@ -31,8 +31,8 @@
  - [x] coloring based on temperature for both slider and value
 
 ### disk usage
- - [ ] percentage of disk used
- - [ ] hover window with  <used in GiB> out of <total in GiB> (<free in GiB>)
+ - [x] percentage of disk used
+ - [x] hover window with  <used in GiB> out of <total in GiB> (<free in GiB>)
 
 ### ram usage
  - [ ] used ram in GiB
