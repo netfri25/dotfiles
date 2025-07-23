@@ -4,7 +4,7 @@
 (defwidget disk-usage []
   (label
     :text "${round(disk-used-kb / disk-total-kb * 100, 1)}%(/)"
-    :tooltip "${formatbytes(disk-used-kb * 1024, true)} out of ${formatbytes(disk-total-kb * 1024, true)} on /"
+    :tooltip "${replace(formatbytes(disk-used-kb * 1024), " ", "")} out of ${replace(formatbytes(disk-total-kb * 1024), " ", "")} on /\n${replace(formatbytes((disk-total-kb - disk-used-kb) * 1024), " ", "")} free"
     :class "disk"
   )
 )
