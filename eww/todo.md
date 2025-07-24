@@ -3,7 +3,7 @@
  - [x] percentage
  - [x] progress circle
  - [x] coloring based on state
- - [ ] hover window with wattage & time left for charge/discharge
+ - [x] hover window with wattage & time left for charge/discharge
 
 ### output volume
  - [x] percentage

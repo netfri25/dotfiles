@@ -1,5 +1,4 @@
 ; battery percenage as a whole number.
-; todo: maybe make this a floating value
 (defpoll battery-perc
   :initial 0
   :interval "10s"
@@ -16,11 +15,18 @@
 (defpoll battery-watts
   :initial 0
   :interval "2s"
-  `~/.config/eww/battery-watts.sh`
+  `~/.config/eww/battery.sh watts`
+)
+
+(defpoll battery-time-left
+  :initial "0"
+  :interval "2s"
+  `~/.config/eww/battery.sh time`
 )
 
 (defwidget battery []
   (overlay
+    :tooltip "${battery-status}\n${battery-time-left}\n${battery-watts}W"
     (battery-progress
       :value battery-perc
       :status battery-status
