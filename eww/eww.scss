@@ -90,11 +90,11 @@ tooltip {
   color: green;
 }
 
-.progress-box {
+.temperature-box {
   margin: 1px 5px;
 }
 
-.progress {
+.temperature {
   $radius: 4px;
   $width: 7px;
   trough {
@@ -108,8 +108,8 @@ tooltip {
   }
 }
 
-.progress-cold {
-  @extend .progress;
+.temperature-cold {
+  @extend .temperature;
   trough {
     progress {
       background-color: cyan;
@@ -117,12 +117,12 @@ tooltip {
   }
 }
 
-.progress-normal {
-  @extend .progress;
+.temperature-normal {
+  @extend .temperature;
 }
 
-.progress-warm {
-  @extend .progress;
+.temperature-warm {
+  @extend .temperature;
   trough {
     progress {
       background-color: yellow;
@@ -130,8 +130,8 @@ tooltip {
   }
 }
 
-.progress-hot {
-  @extend .progress;
+.temperature-hot {
+  @extend .temperature;
   trough {
     progress {
       background-color: red;

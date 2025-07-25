@@ -5,7 +5,7 @@
   (box
     :orientation "h"
     :spacing {spacing}
-    :class "progress-box"
+    :class "temperature-box"
     :space-evenly false
     (temperature-progress :value {cpu-temp / 1000})
     (temperature-label :value {cpu-temp / 1000})
@@ -29,12 +29,12 @@
   (progress
     :class {
       value < 40
-      ? "progress-cold"
+      ? "temperature-cold"
       : value < 55
-      ? "progress-normal"
+      ? "temperature-normal"
       : value < 70
-      ? "progress-warm"
-      : "progress-hot"
+      ? "temperature-warm"
+      : "temperature-hot"
     }
     :orientation "v"
     :flipped true
