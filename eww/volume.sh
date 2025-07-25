@@ -53,6 +53,8 @@ usage() {
     echo "Usage: $0 <input|output> <up|down|mute|listen>" >&2
 }
 
+debounce
+
 case "$1" in
     input)
         sink="@DEFAULT_SOURCE@"
