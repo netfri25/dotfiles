@@ -37,6 +37,7 @@
     :halign "end"
     :spacing {spacing}
     :space-evenly false
+    (cpu-usage)
     (memory-usage)
     (disk-usage)
     (temperature)
@@ -53,3 +54,4 @@
 (include "modules/temperature.yuck")
 (include "modules/disk.yuck")
 (include "modules/memory.yuck")
+(include "modules/cpu.yuck")

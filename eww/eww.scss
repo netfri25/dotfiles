@@ -21,6 +21,16 @@ $fg-color: $gray2-color;
   color: $fg-color;
 }
 
+.smol {
+  @extend .text;
+  font-size: 13px;
+}
+
+.big {
+  @extend .text;
+  font-size: 24px;
+}
+
 .icon {
   @extend .text;
   font-size: 17px;
@@ -138,3 +148,31 @@ tooltip {
   }
 }
 
+.cpu-text {
+  @extend .text;
+  font-size: 18px;
+}
+
+.cpu {
+  $width: 4px;
+  trough {
+    min-height: 1px;
+    background-color: $gray1-color;
+    min-width: $width;
+    progress {
+      min-width: $width;
+      background-color: $gray2-color;
+    }
+  }
+}
+
+.cpu-0 { @extend .cpu; $color: #3B82F6; color: $color; trough { progress { background-color: $color; } } }
+.cpu-1 { @extend .cpu; $color: #0EA5E9; color: $color; trough { progress { background-color: $color; } } }
+.cpu-2 { @extend .cpu; $color: #06B6D4; color: $color; trough { progress { background-color: $color; } } }
+.cpu-3 { @extend .cpu; $color: #14B8A6; color: $color; trough { progress { background-color: $color; } } }
+.cpu-4 { @extend .cpu; $color: #10B981; color: $color; trough { progress { background-color: $color; } } }
+.cpu-5 { @extend .cpu; $color: #84CC16; color: $color; trough { progress { background-color: $color; } } }
+.cpu-6 { @extend .cpu; $color: #FACC15; color: $color; trough { progress { background-color: $color; } } }
+.cpu-7 { @extend .cpu; $color: #F59E0B; color: $color; trough { progress { background-color: $color; } } }
+.cpu-8 { @extend .cpu; $color: #EF4444; color: $color; trough { progress { background-color: $color; } } }
+.cpu-9 { @extend .cpu; $color: #991B1B; color: $color; trough { progress { background-color: $color; } } }

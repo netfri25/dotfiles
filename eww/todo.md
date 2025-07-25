@@ -40,10 +40,10 @@
  - [x] hover window with additional information for both ram and swap (used out of total)
 
 ### cpu usage
- - [ ] total cpu usage in percentage
- - [ ] progress circle
- - [ ] coloring based on total usage
- - [ ] hover window with information about each core: GHz, usage in %, and coloring
+ - [x] total cpu usage in percentage
+ - [x] progress bars (similar to the temperature)
+ - [x] coloring based on total usage
+ - [x] hover window with information about each core: GHz, usage in %, and coloring
 
 
 # middle

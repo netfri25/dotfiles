@@ -1,0 +1,57 @@
+(defwidget cpu-core-info [core]
+  (box
+    :orientation "h"
+    (label
+      :xalign 0
+      :class "cpu-text cpu-${min(9, floor(core.usage / 10))}"
+      :text "${core.core}:${strlength(core.core) < 5 ? "  " : " "}${core.usage < 10 ? " ${core.usage}" : core.usage}"
+    )
+    (label
+      :xalign 1
+      :class "smol"
+      :text {
+        core.freq < 1000
+        ? "${core.freq} MHz"
+        : "${round(core.freq / 1000, 2)} GHz"
+      }
+    )
+  )
+)
+
+(defwidget cpu-tooltip []
+  (box
+    :orientation "v"
+    :space-evenly false
+    :spacing 4
+    (box
+      :orientation "v"
+      (for core in {EWW_CPU.cores} (cpu-core-info :core core))
+    )
+    (label
+      :xalign 0.5
+      :class "big cpu-${min(9, floor(EWW_CPU.avg / 10))}"
+      :text {round(EWW_CPU.avg, 2)}
+    )
+  )
+)
+
+(defwidget cpu-core-progress [core]
+  (progress
+    :class "cpu-${min(9, floor(core.usage / 10))}"
+    :orientation "v"
+    :flipped true
+    :value {core.usage}
+    :height {height - 2}  ; -2 because of a vertical margin of 1px
+  )
+)
+
+(defwidget cpu-usage []
+  (tooltip
+    (cpu-tooltip)
+    (box
+      (for core in {EWW_CPU.cores}
+        (cpu-core-progress :core core)
+      )
+    )
+  )
+)
