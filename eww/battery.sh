@@ -14,6 +14,7 @@ battery_watts() {
 battery_time() {
     charge_now=$(<"$BATTERY/charge_now")
     current_now=$(<"$BATTERY/current_now")
+    status=$(<"$BATTERY/status")
 
     if (( current_now == 0 )); then
         echo "0"
@@ -22,18 +23,15 @@ battery_time() {
 
     charge_full=$(<"$BATTERY/charge_full")
 
-    if (( current_now < 0 )); then
-        # discharging
-        current_now=$(( -current_now ))
+    if [[ $status == "Discharging" ]]; then
         time_minutes=$(( charge_now * 60 / current_now ))
     else
-        # charging
         charge_remaining=$(( charge_full - charge_now ))
         time_minutes=$(( charge_remaining * 60 / current_now ))
     fi
 
-    hours=$(( $time_minutes / 60 ))
-    minutes=$(( $time_minutes % 60 ))
+    hours=$(( time_minutes / 60 ))
+    minutes=$(( time_minutes % 60 ))
 
     if (( hours > 0 )); then
         echo -n "${hours}h "
