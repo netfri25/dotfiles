@@ -6,6 +6,7 @@
  - [x] hover window with wattage & time left for charge/discharge
 
 ### output volume
+ - [ ] prevent high cpu usage when changing volume
  - [x] percentage
  - [x] progress circle
  - [x] icons
