@@ -53,8 +53,6 @@ usage() {
     echo "Usage: $0 <input|output> <up|down|mute|listen>" >&2
 }
 
-debounce
-
 case "$1" in
     input)
         sink="@DEFAULT_SOURCE@"
@@ -74,6 +72,7 @@ esac
 
 case "$2" in
     up)
+        debounce
         if is_mute; then
             exit 0
         fi
@@ -87,6 +86,7 @@ case "$2" in
         fi
         ;;
     down)
+        debounce
         if is_mute; then
             exit 0
         fi
@@ -95,6 +95,7 @@ case "$2" in
         pactl set-"$name"-volume "$sink" -1%
         ;;
     mute)
+        debounce
         pactl set-"$name"-mute "$sink" toggle
         ;;
     listen)
