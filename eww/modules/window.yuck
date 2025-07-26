@@ -1,0 +1,8 @@
+(defwidget window-name []
+  (label
+    :text {current-window-name?.title}
+    :class "text"
+  )
+)
+
+(deflisten current-window-name :initial "{}" "ristate -w")

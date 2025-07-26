@@ -23,7 +23,7 @@
     :orientation "h"
     :halign "start"
     :spacing {spacing}
-    (label :text "workspaces and window")
+    (window-name)
   )
 )
 
@@ -55,3 +55,4 @@
 (include "modules/disk.yuck")
 (include "modules/memory.yuck")
 (include "modules/cpu.yuck")
+(include "modules/window.yuck")
