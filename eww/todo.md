@@ -1,3 +1,9 @@
+## IMPORTANT
+I need to create some kind of a multi-tool for better performance.
+currently, using `defpoll` runs a shell command on some given interval.
+I want that tool to replace all `defpoll` with `deflisten`, which is more efficient and only executes a subprocess once.
+most of the `defpoll` that are used are just for reading some file or parsing some value out of a file / command.
+
 # right
 ### battery
  - [x] percentage
