@@ -11,31 +11,31 @@ vim.api.nvim_create_autocmd("User", {
     end,
 })
 
-vim.api.nvim_create_autocmd('Filetype', {
+vim.api.nvim_create_autocmd('FileType', {
     desc = 'Comment highlight for json files',
     pattern = 'json',
     command = 'syntax match Comment +\\/\\/.\\+$+',
 })
 
-vim.api.nvim_create_autocmd('Filetype', {
+vim.api.nvim_create_autocmd('FileType', {
     desc = 'Specific filetype indentation',
     pattern = 'haskell',
     command = 'setlocal shiftwidth=2 | setlocal softtabstop=2 | setlocal expandtab',
 })
 
-vim.api.nvim_create_autocmd('Filetype', {
+vim.api.nvim_create_autocmd('FileType', {
     desc = 'Specific filetype indentation',
     pattern = 'rust',
     command = 'setlocal shiftwidth=4 | setlocal tabstop=4 | setlocal nocindent | setlocal nosmartindent',
 })
 
-vim.api.nvim_create_autocmd('Filetype', {
+vim.api.nvim_create_autocmd('FileType', {
     desc = 'Specific filetype indentation',
     pattern = 'c,cpp',
     command = 'setlocal shiftwidth=4 | setlocal tabstop=4',
 })
 
-vim.api.nvim_create_autocmd('Filetype', {
+vim.api.nvim_create_autocmd('FileType', {
     desc = 'Spell checking in gitcommit',
     pattern = 'gitcommit',
     command = 'set spell',
@@ -53,7 +53,7 @@ vim.api.nvim_create_autocmd('FileType', {
     command = 'setlocal commentstring=BTW\\ %s',
 })
 
-vim.api.nvim_create_autocmd('Filetype', {
+vim.api.nvim_create_autocmd('FileType', {
     desc = 'Adds key mappings for the `help` buffer',
     pattern = 'help',
     callback = function()
@@ -89,10 +89,10 @@ vim.api.nvim_create_autocmd({ 'TermEnter', 'TermOpen' }, {
             vim.cmd('bd!')
             vim.cmd({ cmd = 'edit', args = { title } })
         end, {
-                buffer = buf,
-                silent = true,
-                desc = 'Re-run the terminal command',
-            })
+            buffer = buf,
+            silent = true,
+            desc = 'Re-run the terminal command',
+        })
     end
 })
 
@@ -114,7 +114,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     end
 })
 
-local group = vim.api.nvim_create_augroup('Center', { clear = true })
+-- local group = vim.api.nvim_create_augroup('Center', { clear = true })
 
 -- vim.api.nvim_create_autocmd('CursorMoved', {
 --    pattern = '*',
@@ -137,13 +137,7 @@ local group = vim.api.nvim_create_augroup('Center', { clear = true })
 --    group = group,
 -- })
 
--- make .roc files have the correct filetype
-vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
-    pattern = { "*.roc" },
-    command = "set filetype=roc",
-})
-
-vim.api.nvim_create_autocmd('Filetype', {
+vim.api.nvim_create_autocmd('FileType', {
     desc = 'Specific filetype options',
     pattern = 'markdown',
     command = 'setlocal wrap | setlocal linebreak',

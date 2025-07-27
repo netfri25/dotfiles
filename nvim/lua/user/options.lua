@@ -63,6 +63,7 @@ vim.filetype.add({
         ['onyx'] = 'onyx',
         ['an'] = 'ante',
         ['nbt'] = 'numbat',
+        ['roc'] = 'roc',
     },
 })
 
