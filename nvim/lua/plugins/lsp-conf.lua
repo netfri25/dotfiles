@@ -4,7 +4,7 @@
 return {
     'neovim/nvim-lspconfig',
     lazy = true,
-    cmd = { "LspStart" },
+    cmd = { "Lsp" },
 
     dependencies = {
         'saghen/blink.cmp',
@@ -14,6 +14,9 @@ return {
         local lspconfig = require('lspconfig')
         local configs = require('lspconfig.configs')
         local capabilities = require('blink.cmp').get_lsp_capabilities()
+
+        -- dummy command. used for starting Lsp on demand
+        vim.api.nvim_create_user_command("Lsp", "", {})
 
         configs.onyx = {
             default_config = {
