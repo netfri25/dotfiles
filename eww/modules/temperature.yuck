@@ -39,6 +39,6 @@
     :orientation "v"
     :flipped true
     :value {value}
-    :height {height - 2}  ; -2 because of a vertical margin of 1px
+    :height {height - 6}  ; -6 because of a vertical margin of 3px
   )
 )

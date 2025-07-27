@@ -101,7 +101,7 @@ tooltip {
 }
 
 .temperature-box {
-  margin: 1px 5px;
+  margin: 3px 5px;
 }
 
 .temperature {
@@ -146,6 +146,10 @@ tooltip {
       background-color: red;
     }
   }
+}
+
+.cpu-core-progress-box {
+  margin: 3px 5px;
 }
 
 .cpu-text {

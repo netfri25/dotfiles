@@ -41,7 +41,7 @@
     :orientation "v"
     :flipped true
     :value {core.usage}
-    :height {height - 2}  ; -2 because of a vertical margin of 1px
+    :height {height - 6}  ; -6 because of a vertical margin of 3px
   )
 )
 
@@ -49,6 +49,7 @@
   (tooltip
     (cpu-tooltip)
     (box
+      :class "cpu-core-progress-box"
       (for core in {EWW_CPU.cores}
         (cpu-core-progress :core core)
       )
