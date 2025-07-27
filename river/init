@@ -99,9 +99,9 @@ riverctl map normal Super F11 enter-mode passthrough
 riverctl map passthrough Super F11 enter-mode normal
 
 # volume
-RAISE_VOLUME="amixer sset Master 5%+"
-LOWER_VOLUME="amixer sset Master 5%-"
-SET_MUTE="amixer sset Master toggle"
+RAISE_VOLUME="pactl set-sink-volume @DEFAULT_SINK@ +5%"
+LOWER_VOLUME="pactl set-sink-volume @DEFAULT_SINK@ -5%"
+SET_MUTE="pactl set-sink-mute @DEFAULT_SINK@ toggle"
 riverctl map normal None XF86AudioRaiseVolume spawn "$RAISE_VOLUME"
 riverctl map normal None XF86AudioLowerVolume spawn "$LOWER_VOLUME"
 riverctl map normal None XF86AudioMute spawn "$SET_MUTE"
