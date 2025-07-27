@@ -44,7 +44,7 @@ return {
     event = 'VeryLazy',
 
     dependencies = {
-       'justinhj/battery.nvim',
+        'justinhj/battery.nvim',
     },
 
     config = function()

@@ -137,7 +137,7 @@ return {
 
                     imports = {
                         granularity = {
-                           group = 'module',
+                            group = 'module',
                         },
 
                         preferPrelude = true,
@@ -145,15 +145,15 @@ return {
 
                     completion = {
                         callable = {
-                           snippets = 'none'
+                            snippets = 'none'
                         },
 
                         fullFunctionSignatures = {
-                           enable = true,
+                            enable = true,
                         },
 
                         postfix = {
-                           enable = false,
+                            enable = false,
                         },
                     },
 

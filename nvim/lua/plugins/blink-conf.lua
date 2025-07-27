@@ -1,7 +1,7 @@
 
 local function filter_item(item)
     return item.kind ~= require('blink.cmp.types').CompletionItemKind.Snippet
-       and item.kind ~= require('blink.cmp.types').CompletionItemKind.Keyword
+        and item.kind ~= require('blink.cmp.types').CompletionItemKind.Keyword
 end
 
 return {
