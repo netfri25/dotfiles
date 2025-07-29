@@ -1,15 +1,16 @@
-; the temperature is given in mC (milli-celsius)
-(defpoll cpu-temp :interval "2s" :initial 0 "cat /sys/class/thermal/thermal_zone0/temp")
-
-(defwidget temperature []
+(defwidget temperature-impl [temp]
   (box
     :orientation "h"
     :spacing {spacing}
     :class "temperature-box"
     :space-evenly false
-    (temperature-progress :value {cpu-temp / 1000})
-    (temperature-label :value {cpu-temp / 1000})
+    (temperature-progress :value temp)
+    (temperature-label :value temp)
   )
+)
+
+(defwidget temperature []
+  (temperature-impl :temp {EWW_TEMPS["ACPITZ_TEMP1"]})
 )
 
 (defwidget temperature-label [value]
