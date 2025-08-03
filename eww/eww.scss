@@ -56,7 +56,7 @@ $fg-color: $gray2-color;
   color: red;
 }
 
-.disk {
+.padded-text {
   @extend .text;
   padding: 0px 4px;
 }

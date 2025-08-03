@@ -2,7 +2,7 @@
   (label
     :text "${round(disk.used_perc, 1)}%"
     :tooltip "${replace(formatbytes(disk.used), " ", "")} out of ${replace(formatbytes(disk.total), " ", "")} on /\n${replace(formatbytes(disk.free), " ", "")} free"
-    :class "disk"
+    :class "padded-text"
   )
 )
 

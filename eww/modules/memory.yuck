@@ -2,7 +2,7 @@
   (label
     :text {used-ram}
     :tooltip "RAM:  ${used-ram} out of ${total-ram}\nSWAP: ${used-swap} out of ${total-swap}"
-    :class "disk"
+    :class "padded-text"
   )
 )
 
