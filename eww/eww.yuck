@@ -40,6 +40,7 @@
     (cpu-usage)
     (memory-usage)
     (disk-usage)
+    (network)
     (temperature)
     (input-volume)
     (output-volume)
@@ -56,3 +57,4 @@
 (include "modules/memory.yuck")
 (include "modules/cpu.yuck")
 (include "modules/window.yuck")
+(include "modules/network.yuck")

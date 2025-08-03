@@ -1,0 +1,17 @@
+(defpoll network-device :interval "5s" `ip route | head -1 | cut -d ' ' -f 5`)
+(defpoll network-ip :interval "5s" `ip route | head -1 | cut -d ' ' -f 9`)
+(defpoll network-ssid :interval "5s" `iwgetid -r`)
+
+(defwidget network []
+  (label
+    :text {
+      network-device =~ "eth.*|en.*"
+      ? " "
+      : network-device =~ "wl.*"
+      ? "󰤨 "
+      : network-device
+    }
+    :tooltip "${network-device} - ${network-ip}${ network-device =~ "wl.*" ? "\n${network-ssid}" : "" }"
+    :class "padded-text"
+  )
+)
