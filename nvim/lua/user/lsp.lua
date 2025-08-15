@@ -4,6 +4,7 @@ local servers = {
     'clangd',
     'lua_ls',
     'ruff',
+    'hls',
 }
 
 local enabled = false
