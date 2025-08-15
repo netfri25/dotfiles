@@ -3,8 +3,8 @@
 COOLDOWN_MS=25
 STATE_FILE="/tmp/eww-volume-scroll"
 
-INPUT_LIMIT=150
-OUTPUT_LIMIT=100
+INPUT_LIMIT=200
+OUTPUT_LIMIT=200
 limit=0
 sink=""
 name=""
