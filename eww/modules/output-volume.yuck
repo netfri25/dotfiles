@@ -3,12 +3,24 @@
 
 (defwidget output-volume-progress [value]
   (circular-progress
-    :value { value == "muted" ? 100 : value }
+    :value {
+      value == "muted"
+      ? 100
+      : value == 0
+      ? 0
+      : value % 100
+    }
     :width {height}
     :height {height}
     :start-at 75
     :thickness {progress-thickness}
-    :class { value == "muted" ? "circle-red" : "circle-normal" }
+    :class {
+      value == "muted"
+      ? "circle-red"
+      : value >= 100
+      ? "circle-inverse"
+      : "circle-normal"
+    }
   )
 )
 
