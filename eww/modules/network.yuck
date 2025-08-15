@@ -9,6 +9,8 @@
       ? " "
       : network-device =~ "wl.*"
       ? "󰤨 "
+      : network-device == ""
+      ? "??"
       : network-device
     }
     :tooltip "${network-device} - ${network-ip}${ network-device =~ "wl.*" ? "\n${network-ssid}" : "" }"
