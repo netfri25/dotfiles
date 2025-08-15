@@ -24,7 +24,8 @@ return {
             inverse = true, -- invert background for search, diffs, statuslines and errors
             contrast = contrast,
             palette_overrides = {
-                dark0_hard = '#181818',
+                -- dark0_hard = '#181818',
+                dark0_hard = '#000000',
             },
 
             overrides = {
