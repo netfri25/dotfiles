@@ -1,3 +1,7 @@
+(defvar temperature-cold 40)
+(defvar temperature-warm 50)
+(defvar temperature-hot 70)
+
 (defwidget temperature-impl [temp]
   (box
     :orientation "h"
@@ -17,9 +21,9 @@
   (label
     :text "${value}°C"
     :class {
-      value < 50
+      value < temperature-warm
       ? "text"
-      : value < 75
+      : value < temperature-hot
       ? "text-yellow"
       : "text-red"
     }
@@ -29,11 +33,11 @@
 (defwidget temperature-progress [value]
   (progress
     :class {
-      value < 40
+      value < temperature-cold
       ? "temperature-cold"
-      : value < 55
+      : value < temperature-warm
       ? "temperature-normal"
-      : value < 70
+      : value < temperature-hot
       ? "temperature-warm"
       : "temperature-hot"
     }
