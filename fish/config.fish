@@ -3,9 +3,9 @@ set -U fish_prompt_pwd_dir_length 0
 set fish_color_valid_path
 
 alias lz="eza --sort=size -l"
-alias ls="eza -la"
+alias la="eza -la"
 alias ll="eza -l"
-alias la="eza"
+alias ls="eza"
 # alias ls="exit"
 
 alias nvd="neovide"
