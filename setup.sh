@@ -6,7 +6,7 @@ CONFIG_PATH="$HOME/.config"
 
 # NOTE: not using ls on purpose, in case there will be some other configs that require different locations
 CONFIGS=(
-    alacritty
+    foot
     dwm
     fish
     neovide
