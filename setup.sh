@@ -3,6 +3,7 @@
 set -xe
 
 CONFIG_PATH="$HOME/.config"
+mkdir -p $CONFIG_PATH
 
 # NOTE: not using ls on purpose, in case there will be some other configs that require different locations
 CONFIGS=(
