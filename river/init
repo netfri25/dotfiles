@@ -184,7 +184,7 @@ riverctl input $tablet map-to-output DP-1
 riverctl map-switch normal lid open spawn "wlr-randr --output eDP-1 --on"
 riverctl map-switch normal lid close spawn "wlr-randr --output eDP-1 --off"
 
-# manually configure monitors
+# manually toggle monitor
 riverctl map normal Super+Shift D spawn "wlr-randr --output eDP-1 --toggle"
 
 export WAYLAND_DISPLAY=wayland-1
