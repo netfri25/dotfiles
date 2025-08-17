@@ -191,8 +191,6 @@ export WAYLAND_DISPLAY=wayland-1
 export XDG_CURRENT_DESKTOP=river
 
 # autostart
-MONITOR_CONFIG="$CONFIG/config-monitor.sh"
-riverctl spawn "$MONITOR_CONFIG"
 riverctl spawn "filtile -view-padding 0 -outer-padding 0"
 riverctl spawn "wl-paste --type text --watch cliphist store"
 riverctl spawn "wl-paste --type image --watch cliphist store"
