@@ -1,0 +1,2 @@
+ - dwm is not used anymore
+ - river also needs [filtile](https://github.com/pkulak/filtile)
