@@ -1,2 +1,3 @@
  - dwm is not used anymore
- - river also needs [filtile](https://github.com/pkulak/filtile)
+ - river depends on [filtile](https://github.com/pkulak/filtile)
+ - yambar depends on [yambar-temperature](https://github.com/Delgan/yambar-temperature)

@@ -194,6 +194,6 @@ export XDG_CURRENT_DESKTOP=river
 riverctl spawn "filtile -view-padding 0 -outer-padding 0"
 riverctl spawn "wl-paste --type text --watch cliphist store"
 riverctl spawn "wl-paste --type image --watch cliphist store"
-riverctl spawn waybar
+riverctl spawn yambar
 
 exec dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=river

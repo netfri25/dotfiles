@@ -14,8 +14,7 @@ CONFIGS=(
     nvim
     river
     fuzzel
-    waybar
-    eww
+    yambar
 )
 
 for item in "${CONFIGS[@]}"; do
