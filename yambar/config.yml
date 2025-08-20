@@ -332,7 +332,7 @@ bar:
           - string: {text: "BAT ", foreground: *yellow}
           - map:
               conditions:
-                estimate != "99:00":
+                estimate != "99:00" && estimate != "00:00":
                   - string: {text: "{estimate} "}
           - map:
               default:
