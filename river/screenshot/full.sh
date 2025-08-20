@@ -1,2 +1,9 @@
 #!/bin/bash
-grim -c - | $(dirname "$0")/save.sh
+
+# freeze
+hyprpicker -r -z &
+sleep .1
+
+
+# unfreeze
+pkill hyprpicker
