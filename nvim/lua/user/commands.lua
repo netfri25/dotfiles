@@ -1,3 +1,12 @@
+vim.api.nvim_create_autocmd("FileType", {
+    desc = "Disable annoying indentation",
+    pattern = "*",
+    callback = function()
+        vim.opt_local.indentexpr = ""
+        vim.opt_local.indentkeys = ""
+    end,
+})
+
 vim.api.nvim_create_autocmd("User", {
     pattern = "TelescopeFindPre",
     callback = function()
