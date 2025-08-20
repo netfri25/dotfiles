@@ -327,15 +327,18 @@ bar:
     - battery:
         name: BAT1
         poll-interval: *poll
-        smoothing-secs: 10000
+        smoothing-secs: 100
         content:
           - string: {text: "BAT ", foreground: *yellow}
-          - string: {text: "{estimate} "}
+          - map:
+              conditions:
+                estimate != "99:00":
+                  - string: {text: "{estimate} "}
           - map:
               default:
                 string: {text: "o"}
               conditions:
-                state == charging:
+                state == charging && estimate != "99:00":
                   string: {text: "+", foreground: *green}
                 state == discharging:
                   string: {text: "-", foreground: *red}
