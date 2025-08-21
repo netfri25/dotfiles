@@ -275,8 +275,8 @@ bar:
                                   size: 24
 
     - script:
-        path: ~/.cargo/bin/yambar-temperature
-        args: [--poll-interval, *poll, --names, acpitz-acpi-0]
+        path: ~/.config/yambar/temperature.sh
+        args: [*poll]
         anchors:
           cool: &cool 2fb7c4ff
           warm: &warm e0c555ff

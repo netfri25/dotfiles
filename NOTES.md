@@ -19,4 +19,3 @@
 
  - yambar dependencies:
     * [yambar](https://codeberg.org/dnkl/foot) (in xbps)
-    * [yambar-temperature](https://github.com/Delgan/yambar-temperature) (**not** in xbps)
