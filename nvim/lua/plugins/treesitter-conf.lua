@@ -139,7 +139,7 @@ return {
                 },
             },
 
-            indent = { enable = false },
+            indent = { enable = true },
         })
     end
 }
