@@ -8,7 +8,5 @@ end
 
 vim.api.nvim_create_autocmd('ColorScheme', { callback = colorscheme_options })
 
--- might add something in the future that will remember the last colorscheme I used
--- local default_colorscheme = 'mellifluous'
-local default_colorscheme = 'gruvbox'
+local default_colorscheme = 'grayscale'
 vim.cmd.colorscheme(default_colorscheme)
