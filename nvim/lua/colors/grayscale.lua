@@ -8,6 +8,7 @@ M.colors = {
     comment     = "#545454",
     constant    = "#c0b8b0",
     blackish    = "#202020",
+    selection   = "#383838",
     diff_add    = "#68bb26",
     diff_del    = "#fb4934",
 }
@@ -22,7 +23,7 @@ M.groups = {
     CursorLine      = { bg = M.colors.bg },
     CursorLineNr    = { fg = M.colors.white, bg = M.colors.bg, bold = true },
 
-    Visual      = { bg = M.colors.blackish },
+    Visual      = { bg = M.colors.selection },
     Directory   = { fg = M.colors.white, bg = M.colors.bg, bold = true },
     MatchParen  = { fg = M.colors.fg, bg = M.colors.bg },
 
