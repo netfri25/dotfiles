@@ -14,6 +14,7 @@ CONFIGS=(
     river
     fuzzel
     yambar
+    mako
 )
 
 for item in "${CONFIGS[@]}"; do
