@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-if [ "$#" -ne 1]; then
+if [[ "$#" -ne 1 ]]; then
     echo "Usage: $0 <from|to>"
     exit 1
 fi
