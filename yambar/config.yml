@@ -317,12 +317,7 @@ bar:
             conditions:
               name == wlp98s0:
                 - string: {text: "WIFI ", foreground: *yellow}
-                - map:
-                    default:
-                      string: {text: "{ssid}"}
-                    conditions:
-                      state == down:
-                        string: {text: "<off>"}
+                - string: {text: "{state} {quality}"}
 
     - battery:
         name: BAT1
