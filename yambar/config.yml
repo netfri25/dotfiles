@@ -322,7 +322,7 @@ bar:
     - battery:
         name: BAT1
         poll-interval: *poll
-        smoothing-secs: 100
+        smoothing-secs: 0
         content:
           - string: {text: "BAT ", foreground: *yellow}
           - map:
