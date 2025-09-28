@@ -65,6 +65,7 @@ vim.filetype.add({
         ['an'] = 'ante',
         ['nbt'] = 'numbat',
         ['roc'] = 'roc',
+        ['asm'] = 'fasm',
     },
 })
 
