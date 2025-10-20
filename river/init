@@ -176,11 +176,10 @@ riverctl input $touchpad tap-button-map left-right-middle
 riverctl input $touchpad pointer-accel 0.4
 riverctl input $touchpad scroll-factor 0.5
 riverctl input $touchpad scroll-method two-finger
-riverctl input $touchpad map-to-output eDP-1
 
 # tablet config
 tablet="tablet*"
-riverctl input $tablet map-to-output DP-1
+riverctl input $tablet map-to-output HDMI-A-1
 
 # lid config
 riverctl map-switch normal lid open spawn "wlr-randr --output eDP-1 --on"
