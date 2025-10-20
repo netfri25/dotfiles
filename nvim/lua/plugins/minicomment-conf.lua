@@ -2,7 +2,7 @@
 -- allowes me to press gc and then some text object to toggle a comment
 
 return {
-    'echasnovski/mini.comment',
+    'nvim-mini/mini.comment',
     keys = 'gc',
     lazy = true,
     opts = {

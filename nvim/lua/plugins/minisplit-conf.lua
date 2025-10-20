@@ -1,7 +1,7 @@
 -- simple plugin for split/join brackets
 
 return {
-    'echasnovski/mini.splitjoin',
+    'nvim-mini/mini.splitjoin',
     keys = 'gs',
     lazy = true,
     opts = {

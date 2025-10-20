@@ -12,7 +12,7 @@ local function switch(fun1, fun2)
 end
 
 return {
-    'echasnovski/mini.trailspace',
+    'nvim-mini/mini.trailspace',
     lazy = true,
     event = 'VeryLazy',
 
