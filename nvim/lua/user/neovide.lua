@@ -18,7 +18,7 @@ vim.g.neovide_cursor_antialiasing = false
 
 vim.g.gui_font_default_size = 14
 vim.g.gui_font_size = vim.g.gui_font_default_size
-vim.g.gui_font_face = 'Iosevka Custom,Helvetica'
+vim.g.gui_font_face = 'IosevkaCustomNerdFontComplete Nerd Font,Helvetica'
 vim.g.gui_antialiasing = 'subpixelantialias'
 vim.g.gui_hinting = 'full'
 
