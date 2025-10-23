@@ -1,7 +1,7 @@
 if not vim.g['neovide'] then return end
 
 -- vim.g.neovide_cursor_vfx_mode = 'ripple'
-vim.g.neovide_refresh_rate = 120
+vim.g.neovide_refresh_rate = 144
 vim.g.neovide_no_idle = false
 -- vim.g.neovide_refresh_rate_idle = 5
 vim.g.neovide_fullscreen = false
