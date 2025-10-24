@@ -13,7 +13,6 @@ CONFIGS=(
     nvim
     river
     fuzzel
-    yambar
     mako
 )
 
