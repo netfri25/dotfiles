@@ -1,2 +1,4 @@
  - [nasin-nanpa](https://github.com/etbcor/nasin-nanpa)
  - [Iosevka](https://github.com/be5invis/Iosevka)
+ - [Symbols Nerd Font](https://www.nerdfonts.com)
+ - [Varela Round](https://fonts.google.com/specimen/Varela+Round)
