@@ -19,3 +19,9 @@ CONFIGS=(
 for item in "${CONFIGS[@]}"; do
     ln -s "$PWD/$item" $CONFIG_PATH
 done
+
+# fonts
+FONTS_PATH="$HOME/.local/share/fonts"
+mkdir -p "$FONTS_PATH"
+
+cp -r "$PWD/fonts/." "$FONTS_PATH"
