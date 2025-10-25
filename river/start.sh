@@ -1,5 +1,9 @@
 #!/bin/bash
 
+DEFAULT_COMPOSITOR=river
+
+COMPOSITOR=${1:-$DEFAULT_COMPOSITOR}
+
 cleanup() {
     # cleanup
     CGROUP_PATH=$(grep "^0::" /proc/self/cgroup | cut -d: -f3)
@@ -38,4 +42,4 @@ export XCURSOR_SIZE=24
 pipewire &
 
 # wm
-river
+$COMPOSITOR
