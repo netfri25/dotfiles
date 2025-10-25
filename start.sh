@@ -3,6 +3,7 @@
 DEFAULT_COMPOSITOR=river
 
 COMPOSITOR=${1:-$DEFAULT_COMPOSITOR}
+shift
 
 cleanup() {
     # cleanup
@@ -42,4 +43,4 @@ export XCURSOR_SIZE=24
 pipewire &
 
 # wm
-$COMPOSITOR
+$COMPOSITOR "$@"
