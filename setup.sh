@@ -31,6 +31,6 @@ ln -st "$CONFIG_PATH" "${CONFIGS[@]/#/$PWD/}"
 FONTS_PATH="$HOME/.local/share/fonts"
 mkdir -p "$(dirname "$FONTS_PATH")"
 
-[ -e $FONTS_PATH ] && mv -t "$BACKUP" "$FONTS_PATH"
+[ -e "$FONTS_PATH" ] && mv -t "$BACKUP" "$FONTS_PATH"
 
 ln -sT "$PWD/fonts" "$FONTS_PATH"
