@@ -16,11 +16,21 @@ CONFIGS=(
     mako
 )
 
-for item in "${CONFIGS[@]}"; do
-    ln -s "$PWD/$item" "$CONFIG_PATH"
-done
+# create backup directory
+BACKUP="/tmp/backup"
+[ -e "$BACKUP" ] && rm -vrf "$BACKUP"
+mkdir -p "$BACKUP"
+
+# move everything (if exist) to the backup directory
+mv -t "$BACKUP" "${CONFIGS[@]/#/$CONFIG_PATH/}" || true 2>/dev/null
+
+# create symbolic links for the configs from dotfiles to config directory
+ln -st "$CONFIG_PATH" "${CONFIGS[@]/#/$PWD/}"
 
 # fonts
 FONTS_PATH="$HOME/.local/share/fonts"
 mkdir -p "$(dirname "$FONTS_PATH")"
-ln -s "$PWD/fonts" "$FONTS_PATH"
+
+[ -e $FONTS_PATH ] && mv -t "$BACKUP" "$FONTS_PATH"
+
+ln -sT "$PWD/fonts" "$FONTS_PATH"
