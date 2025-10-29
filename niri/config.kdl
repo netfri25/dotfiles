@@ -165,7 +165,7 @@ binds {
     XF86MonBrightnessDown   { spawn "brightnessctl" "set" "-e" "1%-"; }
     Mod+F3                  { spawn "brightnessctl" "set" "-e" "1%-"; }
 
-    Mod+Tab repeat=false { toggle-overview; }
+    Mod+O repeat=false { toggle-overview; }
 
     Mod+Q repeat=false { close-window; }
 
