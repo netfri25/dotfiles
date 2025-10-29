@@ -39,14 +39,6 @@ riverctl map normal Super+Shift Comma send-to-output previous
 # set focused view to main view
 riverctl map normal Super Z zoom
 
-# change main ratio
-riverctl map normal Super H send-layout-cmd filtile "main-ratio -0.05"
-riverctl map normal Super L send-layout-cmd filtile "main-ratio +0.05"
-
-# change main count
-riverctl map normal Super+Shift H send-layout-cmd filtile "main-count +1"
-riverctl map normal Super+Shift L send-layout-cmd filtile "main-count -1"
-
 # move views
 riverctl map normal Super+Alt H move left 100
 riverctl map normal Super+Alt J move down 100
@@ -86,14 +78,7 @@ riverctl map normal Super+Shift 0 set-view-tags $all_tags
 
 # layout manipulation
 riverctl map normal Super F toggle-float
-riverctl map normal Super M send-layout-cmd filtile "monocle"
 riverctl map normal Super+Shift F toggle-fullscreen
-
-# layout orientation
-riverctl map normal Super Up    send-layout-cmd filtile "main-location top"
-riverctl map normal Super Right send-layout-cmd filtile "main-location right"
-riverctl map normal Super Down  send-layout-cmd filtile "main-location bottom"
-riverctl map normal Super Left  send-layout-cmd filtile "main-location left"
 
 # passthrough mode
 riverctl declare-mode passthrough
@@ -151,9 +136,6 @@ riverctl rule-add -app-id 'zoom' tags $((1 << 3))
 riverctl rule-add -app-id "*" ssd
 riverctl rule-add -app-id "bar" csd
 
-# window layout manager
-riverctl default-layout filtile
-
 # keyboard layout config
 riverctl keyboard-layout -options grp:win_space_toggle,grp_led:scroll us,il
 
@@ -188,11 +170,27 @@ riverctl map-switch normal lid close spawn "wlr-randr --output eDP-1 --off"
 # manually toggle monitor
 riverctl map normal Super+Shift D spawn "wlr-randr --output eDP-1 --toggle"
 
+# window layout manager
+riverctl default-layout filtile
+riverctl spawn "filtile -view-padding 0 -outer-padding 0 -diminish 20"
+
+riverctl map normal Super M send-layout-cmd filtile "monocle"
+
+riverctl map normal Super H send-layout-cmd filtile "main-ratio -0.05"
+riverctl map normal Super L send-layout-cmd filtile "main-ratio +0.05"
+
+riverctl map normal Super+Shift H send-layout-cmd filtile "main-count +1"
+riverctl map normal Super+Shift L send-layout-cmd filtile "main-count -1"
+
+riverctl map normal Super Up    send-layout-cmd filtile "main-location top"
+riverctl map normal Super Right send-layout-cmd filtile "main-location right"
+riverctl map normal Super Down  send-layout-cmd filtile "main-location bottom"
+riverctl map normal Super Left  send-layout-cmd filtile "main-location left"
+
 export WAYLAND_DISPLAY=wayland-1
 export XDG_CURRENT_DESKTOP=river
 
 # autostart
-riverctl spawn "filtile -view-padding 0 -outer-padding 0"
 riverctl spawn "wl-paste --type text --watch cliphist store"
 riverctl spawn "wl-paste --type image --watch cliphist store"
 riverctl spawn "bread-content | bread --font 'Iosevka Simple'"
