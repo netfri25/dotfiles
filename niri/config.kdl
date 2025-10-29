@@ -195,10 +195,13 @@ binds {
     Mod+Down  { move-column-to-monitor-up; }
     Mod+Right { move-column-to-monitor-right; }
 
-    Mod+Shift+Left  { move-workspace-to-monitor-left; }
-    Mod+Shift+Up    { move-workspace-to-monitor-down; }
-    Mod+Shift+Down  { move-workspace-to-monitor-up; }
-    Mod+Shift+Right { move-workspace-to-monitor-right; }
+    Mod+Shift+Ctrl+H { move-workspace-to-monitor-left; }
+    Mod+Shift+Ctrl+J { move-workspace-to-monitor-down; }
+    Mod+Shift+Ctrl+K { move-workspace-to-monitor-up; }
+    Mod+Shift+Ctrl+L { move-workspace-to-monitor-right; }
+
+    Mod+Shift+Ctrl+U { move-workspace-down; }
+    Mod+Shift+Ctrl+I { move-workspace-up; }
 
     Mod+Shift+Page_Down { move-column-to-workspace-down; }
     Mod+Shift+Page_Up   { move-column-to-workspace-up; }
