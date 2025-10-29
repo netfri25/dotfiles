@@ -2,6 +2,11 @@
     * [river](https://codeberg.org/river/river) (in xbps)
     * [filtile](https://github.com/pkulak/filtile) (**not** in xbps)
 
+ - niri:
+    * [niri](https://github.com/YaLTeR/niri) (in xbps)
+    * [xdg-desktop-portal-gtk](https://github.com/flatpak/xdg-desktop-portal-gtk) (in xbps)
+    * [xdg-desktop-portal-gnome](https://gitlab.gnome.org/GNOME/xdg-desktop-portal-gnome) (in xbps)
+
  - screenshot:
     * [slurp](https://wayland.emersion.fr/slurp) (in xbps)
     * [grim](https://wayland.emersion.fr/grim) (in xbps)
