@@ -1,0 +1,258 @@
+// https://yalter.github.io/niri/Configuration:-Introduction
+
+// https://yalter.github.io/niri/Configuration:-Input
+input {
+    keyboard {
+        xkb {
+            layout "us,il"
+            options "grp:win_space_toggle,grp_led:scroll"
+        }
+    }
+
+    touchpad {
+        tap
+        dwt
+        drag true
+        click-method "clickfinger"
+        natural-scroll
+        scroll-factor 0.5
+        accel-speed 0.4
+        accel-profile "flat"
+        scroll-method "two-finger"
+        tap-button-map "left-right-middle"
+    }
+
+    mouse {
+        accel-speed -0.4
+        accel-profile "flat"
+    }
+
+    tablet {
+        map-to-output "HDMI-A-1"
+    }
+
+    focus-follows-mouse max-scroll-amount="0%"
+
+    mod-key "Super"
+}
+
+switch-events {
+    lid-close { spawn "niri" "msg" "output" "eDP-1" "off"; }
+    lid-open { spawn "niri" "msg" "output" "eDP-1" "on"; }
+}
+
+// https://yalter.github.io/niri/Configuration:-Outputs
+output "eDP-1" {
+    mode "1920x1200@60.003"
+    scale 1
+    transform "normal"
+    position x=1920 y=0
+    background-color "#000000"
+}
+
+output "HDMI-A-1" {
+    scale 1
+    transform "normal"
+    position x=0 y=0
+    background-color "#000000"
+    focus-at-startup
+    // mode "1920x1080@143.998"
+}
+
+workspace "browser"
+workspace "main"
+workspace "chat"
+
+// https://yalter.github.io/niri/Configuration:-Window-Rules
+window-rule {
+    match app-id="vesktop"
+    open-on-workspace "chat"
+    open-maximized true
+}
+
+gestures {
+    hot-corners { off; }
+}
+
+// https://yalter.github.io/niri/Configuration:-Layout
+layout {
+    gaps 0
+
+    center-focused-column "never"
+    always-center-single-column
+
+    preset-column-widths {
+        proportion 0.3
+        proportion 0.5
+        proportion 0.7
+    }
+
+    default-column-width { proportion 0.5; }
+
+    focus-ring { off; }
+
+    border {
+        width 3
+        active-color "#696355"
+        inactive-color "#181818"
+        urgent-color "#9b0000"
+    }
+
+    tab-indicator {
+        place-within-column
+        width 6
+        gap 3
+        length total-proportion=1.0
+        position "right"
+    }
+}
+
+overview {
+    backdrop-color "#181818"
+    workspace-shadow { off; }
+}
+
+spawn-sh-at-startup "bread-content | bread --font 'Iosevka Custom'"
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+prefer-no-csd
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// https://yalter.github.io/niri/Configuration:-Animations
+animations {
+    slowdown 0.7
+}
+
+
+binds {
+    Mod+Shift+Slash { show-hotkey-overlay; }
+
+    Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
+    Mod+S hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
+
+    // audio
+    XF86AudioRaiseVolume    { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
+    Mod+F2                  { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05+"; }
+
+    XF86AudioLowerVolume    { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
+    Mod+F1                  { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.05-"; }
+
+    XF86AudioMute           { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
+    XF86AudioMicMute        { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
+
+    // media
+    XF86AudioMedia repeat=false { spawn "playerctl" "play-pause"; }
+    XF86AudioPlay  repeat=false { spawn "playerctl" "play-pause"; }
+    Alt+F1         repeat=false { spawn "playerctl" "play-pause"; }
+
+    XF86AudioPrev  repeat=false { spawn "playerctl" "previous"; }
+    Alt+F2         repeat=false { spawn "playerctl" "previous"; }
+
+    XF86AudioNext  repeat=false { spawn "playerctl" "next"; }
+    Alt+F3         repeat=false { spawn "playerctl" "next"; }
+
+    // brightness
+    XF86MonBrightnessUp     { spawn "brightnessctl" "set" "-e" "1%+"; }
+    Mod+F4                  { spawn "brightnessctl" "set" "-e" "1%+"; }
+    XF86MonBrightnessDown   { spawn "brightnessctl" "set" "-e" "1%-"; }
+    Mod+F3                  { spawn "brightnessctl" "set" "-e" "1%-"; }
+
+    Mod+Tab repeat=false { toggle-overview; }
+
+    Mod+Q repeat=false { close-window; }
+
+    // window management
+    Mod+H { focus-column-left; }
+    Mod+J { focus-window-down; }
+    Mod+K { focus-window-up; }
+    Mod+L { focus-column-right; }
+
+    Mod+Shift+H { move-column-left; }
+    Mod+Shift+J { move-window-down; }
+    Mod+Shift+K { move-window-up; }
+    Mod+Shift+L { move-column-right; }
+
+    Mod+Home { focus-column-first; }
+    Mod+End  { focus-column-last; }
+    Mod+Shift+Home { move-column-to-first; }
+    Mod+Shift+End  { move-column-to-last; }
+
+    Mod+Ctrl+H { focus-monitor-left; }
+    Mod+Ctrl+J { focus-monitor-down; }
+    Mod+Ctrl+K { focus-monitor-up; }
+    Mod+Ctrl+L { focus-monitor-right; }
+
+    Mod+Left  { move-column-to-monitor-left; }
+    Mod+Up    { move-column-to-monitor-down; }
+    Mod+Down  { move-column-to-monitor-up; }
+    Mod+Right { move-column-to-monitor-right; }
+
+    Mod+Shift+Left  { move-workspace-to-monitor-left; }
+    Mod+Shift+Up    { move-workspace-to-monitor-down; }
+    Mod+Shift+Down  { move-workspace-to-monitor-up; }
+    Mod+Shift+Right { move-workspace-to-monitor-right; }
+
+    Mod+Shift+Page_Down { move-column-to-workspace-down; }
+    Mod+Shift+Page_Up   { move-column-to-workspace-up; }
+    Mod+Shift+U         { move-column-to-workspace-down; }
+    Mod+Shift+I         { move-column-to-workspace-up; }
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+
+    Mod+Comma  { consume-window-into-column; }
+    Mod+Period { expel-window-from-column; }
+
+    Mod+C       { center-column; }
+    Mod+Ctrl+C  { center-visible-columns; }
+
+    Mod+V       { toggle-window-floating; }
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+    Mod+W { toggle-column-tabbed-display; }
+
+    // window size management
+    Mod+R       { switch-preset-column-width; }
+    Mod+Shift+R { switch-preset-window-height; }
+    Mod+M       { maximize-column; }
+    Mod+Shift+M { reset-window-height; }
+    Mod+F       { toggle-windowed-fullscreen; }
+    Mod+Shift+F { fullscreen-window; }
+
+    Mod+Minus { set-column-width "-5%"; }
+    Mod+Equal { set-column-width "+5%"; }
+
+    Mod+Shift+Minus { set-window-height "-5%"; }
+    Mod+Shift+Equal { set-window-height "+5%"; }
+
+    // workspaces
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    Mod+5 { focus-workspace 5; }
+    Mod+Shift+1 { move-column-to-workspace focus=false 1; }
+    Mod+Shift+2 { move-column-to-workspace focus=false 2; }
+    Mod+Shift+3 { move-column-to-workspace focus=false 3; }
+    Mod+Shift+4 { move-column-to-workspace focus=false 4; }
+    Mod+Shift+5 { move-column-to-workspace focus=false 5; }
+
+    Mod+Page_Down       { focus-workspace-down; }
+    Mod+Page_Up         { focus-workspace-up; }
+    Mod+U               { focus-workspace-down; }
+    Mod+I               { focus-workspace-up; }
+
+    Print { screenshot; }
+    Shift+Print { screenshot-screen; }
+    Ctrl+Print { screenshot-window; }
+
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    Mod+Ctrl+Shift+Q { quit; }
+    Ctrl+Alt+Delete { quit; }
+
+    Mod+Shift+P { power-off-monitors; }
+}
