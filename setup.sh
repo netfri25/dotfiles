@@ -12,6 +12,7 @@ CONFIGS=(
     neovide
     nvim
     river
+    niri
     fuzzel
     mako
 )
