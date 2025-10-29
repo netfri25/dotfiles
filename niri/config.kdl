@@ -67,6 +67,10 @@ workspace "chat"
 window-rule {
     match app-id="vesktop"
     open-on-workspace "chat"
+}
+
+window-rule {
+    match app-id="osu!"
     open-maximized true
 }
 
