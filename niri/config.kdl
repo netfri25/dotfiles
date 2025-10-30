@@ -70,6 +70,11 @@ window-rule {
 }
 
 window-rule {
+    match app-id="foot"
+    default-column-width { proportion 0.7; }
+}
+
+window-rule {
     match app-id="osu!"
     open-maximized true
 }
