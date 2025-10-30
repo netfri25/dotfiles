@@ -140,6 +140,9 @@ animations {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
+    Mod+T { spawn-sh "$HOME/.dotfiles/toki.sh from"; }
+    Mod+Shift+T { spawn-sh "$HOME/.dotfiles/toki.sh to"; }
+
     Mod+Return hotkey-overlay-title="Open a Terminal: foot" { spawn "foot"; }
     Mod+S hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
 
