@@ -1,6 +1,7 @@
 #!/bin/sh
 
 CONFIG="$HOME/.config/river"
+DOTFILES="$HOME/.dotfiles"
 
 # See the river(1), riverctl(1), and filtile(1) man pages for complete
 # documentation.
@@ -11,8 +12,8 @@ CONFIG="$HOME/.config/river"
 riverctl map normal Super Return spawn $TERMINAL
 riverctl map normal Super S spawn fuzzel
 riverctl map normal Super V spawn "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"
-riverctl map normal Super T spawn "$CONFIG/toki.sh from"
-riverctl map normal Super+Shift T spawn "$CONFIG/toki.sh to"
+riverctl map normal Super T spawn "$DOTFILES/toki.sh from"
+riverctl map normal Super+Shift T spawn "$DOTFILES/toki.sh to"
 
 # quit focused window
 riverctl map normal Super Q close
