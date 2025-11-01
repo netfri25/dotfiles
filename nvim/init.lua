@@ -1,7 +1,7 @@
 require('user/keymaps')
-require('lazy-startup')
 require('user/commands')
 require('user/options')
 require('user/neovide')
 require('user/colorschemes')
 require('user/lsp')
+require('lazy-startup')
