@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DEFAULT_COMPOSITOR=river
+DEFAULT_COMPOSITOR="niri --session"
 
 COMPOSITOR=${1:-$DEFAULT_COMPOSITOR}
 shift
