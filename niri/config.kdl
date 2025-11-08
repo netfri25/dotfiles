@@ -121,7 +121,7 @@ overview {
     workspace-shadow { off; }
 }
 
-spawn-sh-at-startup "bread-content | bread --font 'Iosevka Custom'"
+spawn-sh-at-startup "bread-content | bread --font 'Iosevka Simple'"
 
 hotkey-overlay {
     skip-at-startup
