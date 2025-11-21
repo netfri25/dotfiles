@@ -122,6 +122,7 @@ overview {
 }
 
 spawn-sh-at-startup "bread-content | bread --font 'Iosevka Simple'"
+spawn-at-startup "/usr/libexec/xfce-polkit"
 
 hotkey-overlay {
     skip-at-startup

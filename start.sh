@@ -27,9 +27,6 @@ eval $(dbus-launch --sh-syntax)
 # keyring
 eval $(gnome-keyring-daemon --start --components=ssh,secrets,gpg)
 
-# polkit
-/usr/libexec/xfce-polkit &
-
 # env keyring
 export SSH_AUTH_SOCK
 export GNOME_KEYRING_CONTROL
