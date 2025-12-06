@@ -134,7 +134,47 @@ screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
 // https://yalter.github.io/niri/Configuration:-Animations
 animations {
-    slowdown 0.7
+    slowdown 0.5
+
+    window-open {
+        curve "ease-out-quad"
+    }
+
+    window-close {
+        curve "ease-out-quad"
+    }
+
+    horizontal-view-movement {
+        curve "ease-out-quad"
+    }
+
+    workspace-switch {
+        curve "ease-out-quad"
+    }
+
+    window-movement {
+        curve "ease-out-quad"
+    }
+
+    window-resize {
+        curve "ease-out-quad"
+    }
+
+    config-notification-open-close {
+        curve "ease-out-quad"
+    }
+
+    exit-confirmation-open-close {
+        curve "ease-out-quad"
+    }
+
+    screenshot-ui-open {
+        curve "ease-out-quad"
+    }
+
+    overview-open-close {
+        curve "ease-out-quad"
+    }
 }
 
 
