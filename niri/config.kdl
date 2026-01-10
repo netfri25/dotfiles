@@ -141,6 +141,8 @@ overview {
     workspace-shadow { off; }
 }
 
+spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
+spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
 spawn-sh-at-startup "bread-content | bread --font 'Iosevka Simple'"
 spawn-at-startup "/usr/libexec/xfce-polkit"
 
@@ -201,6 +203,7 @@ animations {
 binds {
     Mod+Shift+Slash { show-hotkey-overlay; }
 
+    Mod+V { spawn-sh "cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"; }
     Mod+T { spawn-sh "$HOME/.dotfiles/toki.sh from"; }
     Mod+Shift+T { spawn-sh "$HOME/.dotfiles/toki.sh to"; }
 
@@ -292,8 +295,8 @@ binds {
     Mod+C       { center-column; }
     Mod+Ctrl+C  { center-visible-columns; }
 
-    Mod+V       { toggle-window-floating; }
-    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+    Mod+B       { toggle-window-floating; }
+    Mod+Shift+B { switch-focus-between-floating-and-tiling; }
 
     Mod+W { toggle-column-tabbed-display; }
 
