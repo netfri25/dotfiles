@@ -43,10 +43,6 @@ return {
     lazy = true,
     event = 'VeryLazy',
 
-    dependencies = {
-        'justinhj/battery.nvim',
-    },
-
     config = function()
         require('hardline').setup({
             bufferline = false,  -- disable bufferline
@@ -56,8 +52,6 @@ return {
             },
             theme = 'custom',   -- change theme
             sections = {         -- define sections
-                {class = 'high', item = function() return vim.fn.strftime('%H:%M') end}, -- time
-                {class = 'low', item = require('battery').get_status_line}, -- battery
                 {class = 'bufferline', item = buffer_name},
                 {class = 'bufferline', item = buffer_flags},
                 '%<',

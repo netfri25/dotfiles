@@ -32,8 +32,6 @@ return {
     event = "VeryLazy",
 
     dependencies = {
-        'nvim-treesitter/nvim-treesitter-textobjects',
-        'nvim-treesitter/playground',
         'rush-rs/tree-sitter-asm',
     },
 

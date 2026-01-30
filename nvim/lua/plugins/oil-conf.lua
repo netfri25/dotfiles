@@ -4,6 +4,10 @@ return {
     'stevearc/oil.nvim',
     lazy = false,
 
+    dependencies = {
+        'kyazdani42/nvim-web-devicons',
+    },
+
     keys = {
         { '<leader>t', function() require('oil').open_float() end, desc = 'Open oil buffer in a new window' }
     },
