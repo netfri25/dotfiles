@@ -12,7 +12,6 @@ $env.PATH ++= [
     /home/netfri/.ghcup/bin
 ]
 
-zoxide init nushell out> /tmp/.zoxide.nu
 source /tmp/.zoxide.nu
 
 alias nvd = neovide
