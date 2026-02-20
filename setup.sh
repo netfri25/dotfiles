@@ -23,7 +23,7 @@ BACKUP="/tmp/backup"
 mkdir -p "$BACKUP"
 
 # move everything (if exist) to the backup directory
-mv -t "$BACKUP" "${CONFIGS[@]/#/$CONFIG_PATH/}" || true 2>/dev/null
+mv -t "$BACKUP" "${CONFIGS[@]/#/$CONFIG_PATH/}" 2>/dev/null || true
 
 # create symbolic links for the configs from dotfiles to config directory
 ln -st "$CONFIG_PATH" "${CONFIGS[@]/#/$PWD/}"
