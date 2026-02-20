@@ -20,7 +20,7 @@ alias nvd = neovide
 
 $env.config.buffer_editor = "nvim"
 
-$env.config.history.sync_on_enter = false
+$env.config.history.sync_on_enter = true
 $env.config.history.isolation = false
 $env.config.show_banner = false
 $env.config.rm.always_trash = false
