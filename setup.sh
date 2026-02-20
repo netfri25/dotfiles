@@ -18,8 +18,7 @@ CONFIGS=(
 )
 
 # create backup directory
-BACKUP="/tmp/backup"
-[ -e "$BACKUP" ] && rm -vrf "$BACKUP"
+BACKUP="/tmp/backup-$(date +%s-%N)"
 mkdir -p "$BACKUP"
 
 # move everything (if exist) to the backup directory
