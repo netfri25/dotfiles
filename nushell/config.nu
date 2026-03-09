@@ -17,6 +17,7 @@ source /tmp/.zoxide.nu
 alias nvd = neovide
 
 
+$env.config.completions.algorithm = "fuzzy"
 
 $env.config.buffer_editor = "nvim"
 
