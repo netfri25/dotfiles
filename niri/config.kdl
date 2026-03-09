@@ -11,7 +11,7 @@ input {
 
     touchpad {
         tap
-        dwt
+        // dwt
         drag true
         click-method "clickfinger"
         natural-scroll
