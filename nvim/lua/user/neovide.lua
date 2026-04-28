@@ -1,55 +1,26 @@
-if not vim.g['neovide'] then return end
+-- neovide specific settings. doesn't hurt to load when not using neovide
 
--- vim.g.neovide_cursor_vfx_mode = 'ripple'
-vim.g.neovide_refresh_rate = 144
-vim.g.neovide_no_idle = false
--- vim.g.neovide_refresh_rate_idle = 5
-vim.g.neovide_fullscreen = false
+vim.g.neovide_refresh_rate_idle = 5
 vim.g.neovide_scroll_animation_length = 0.2
 vim.g.neovide_hide_mouse_when_typing = true
 vim.g.neovide_cursor_trail_size = 0.8
-vim.g.neovide_cursor_antialiasing = false
--- vim.g.neovide_underline_automatic_scaling = false
--- vim.g.neovide_cursor_trail_size = 0.7
--- vim.g.neovide_cursor_animation_length = 0.07
--- vim.g.neovide_cursor_vfx_particle_lifetime = 0.8
--- vim.g.neovide_profiler = true
--- vim.g.neovide_remember_window_size = false
+vim.g.neovide_cursor_animation_length = 0.1
+vim.g.neovide_cursor_antialiasing = true
+vim.g.neovide_profiler = false
 
-vim.g.gui_font_default_size = 14
-vim.g.gui_font_size = vim.g.gui_font_default_size
-vim.g.gui_font_face = 'Iosevka Simple,Symbols Nerd Font Mono,Helvetica'
-vim.g.gui_antialiasing = 'subpixelantialias'
-vim.g.gui_hinting = 'full'
 
-vim.keymap.set({ 'n' }, '<F11>', function() vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen end, { desc = "Toggle fullscreen in neovide" })
-
-RefreshGuiFont = function()
-    vim.opt.guifont = string.format(
-        '%s:h%s:#e-%s:#h-%s',
-        vim.g.gui_font_face,
-        vim.g.gui_font_size,
-        vim.g.gui_antialiasing,
-        vim.g.gui_hinting
-    )
+local resize_gui_font = function(delta)
+    vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + delta / 10
 end
 
-ResizeGuiFont = function(delta)
-    vim.g.gui_font_size = vim.g.gui_font_size + delta
-    RefreshGuiFont()
-end
-
-ResetGuiFont = function()
-    vim.g.gui_font_size = vim.g.gui_font_default_size
-    RefreshGuiFont()
-end
-
--- Call function on startup to set default value
-ResetGuiFont()
+local increase = function() resize_gui_font(1) end
+local decrease = function() resize_gui_font(-1) end
 
 -- Keymaps
-vim.keymap.set({ 'n', 'i', 'v' }, '<C-=>', function() ResizeGuiFont(1) end, { silent = true, desc = 'Decrease GUI font size' })
-vim.keymap.set({ 'n', 'i', 'v' }, '<C-->', function() ResizeGuiFont(-1) end, { silent = true, desc = 'Increase GUI font size' })
+vim.keymap.set({ 'n' }, '<F11>', function() vim.g.neovide_fullscreen = not vim.g.neovide_fullscreen end, { desc = "Toggle fullscreen in neovide" })
 
-vim.keymap.set({ 'n', 'i', 'v' }, '<C-s-=>', function() ResizeGuiFont(1) end, { silent = true, desc = 'Decrease GUI font size' })
-vim.keymap.set({ 'n', 'i', 'v' }, '<C-s-->', function() ResizeGuiFont(-1) end, { silent = true, desc = 'Increase GUI font size' })
+vim.keymap.set({ 'n', 'i', 'v' }, '<C-=>', increase, { silent = true, desc = 'Decrease GUI font size' })
+vim.keymap.set({ 'n', 'i', 'v' }, '<C-->', decrease, { silent = true, desc = 'Increase GUI font size' })
+
+vim.keymap.set({ 'n', 'i', 'v' }, '<C-s-=>', increase, { silent = true, desc = 'Decrease GUI font size' })
+vim.keymap.set({ 'n', 'i', 'v' }, '<C-s-->', decrease, { silent = true, desc = 'Increase GUI font size' })
