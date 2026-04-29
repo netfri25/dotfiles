@@ -1,0 +1,109 @@
+colorscheme grayscale
+
+set-option global autoinfo command|onkey
+set-option global scrolloff 5,10
+set-option global completers word=all filename
+set-option global modelinefmt '%val{bufname} %val{cursor_line}:%val{cursor_char_column} {{context_info}} {{mode_info}} - %val{client}@[%val{session}]'
+set-option global autocomplete prompt
+
+add-highlighter global/number-line number-lines -relative -hlcursor -min-digits 3
+add-highlighter global/trailing-whitespaces show-whitespaces -only-trailing -lf ''
+
+set-face global Whitespace rgb:ff0000+fa
+
+# enum(clippy|cat|dilbert|none|off)
+set-option global ui_options terminal_assistant=none
+
+# convert tabs to spaces
+hook -group tab-to-spaces global InsertChar \t %{
+    execute-keys -draft h@
+}
+
+
+declare-user-mode comment
+
+map global user    c -docstring "enter comment mode" %{<esc>: enter-user-mode comment<ret>}
+map global comment c -docstring "comment line" %{<esc>: comment-line<ret>}
+map global comment b -docstring "comment block" %{<esc>: comment-block<ret>}
+
+
+define-command -docstring "select trailing whitespaces from selection" \
+select-trailing-whitespace %{
+    execute-keys -itersel %{s\h+(?=\n)<ret>}
+}
+
+
+map global user w -docstring "select trailing whitespace" %{<esc>: select-trailing-whitespace<ret>}
+
+
+# PLUGINS
+# bootstrap plug.kak
+evaluate-commands %sh{
+    plugins="$kak_config/plugins"
+    mkdir -p "$plugins"
+    [ ! -e "$plugins/plug.kak" ] && \
+        git clone -q https://github.com/andreyorst/plug.kak.git "$plugins/plug.kak"
+    printf "%s\n" "source '$plugins/plug.kak/rc/plug.kak'"
+}
+plug "andreyorst/plug.kak" noload
+
+set-option global plug_always_ensure yes
+
+
+# indentation
+set-option global tabstop     4
+set-option global indentwidth 4
+
+
+# noexpandtab - use tab for everything. Tab will insert the \t character, and > will use the \t character when indenting. Aligning cursors with & uses the \t character.
+# expandtab - use space for everything. Tab will insert %opt{indentwidth} amount of spaces, and > will indent with spaces.
+# smarttab - indent with tab, align with space. Tab will insert the \t character if your cursor is inside an indentation area, e.g., before any non-whitespace character, and insert spaces if the cursor is after any non-whitespace character. Aligning cursors with & uses space.
+# autoconfigtab - choose the above based upon one of the existing settings (see later section).
+
+plug "andreyorst/smarttab.kak" defer smarttab %{
+    set-option global softtabstop 4
+} config %{
+    hook global WinSetOption filetype=.* expandtab
+}
+
+
+# lsp
+evaluate-commands %sh{kak-lsp}
+
+map global user l -docstring "enter lsp mode" %{<esc>: enter-user-mode lsp<ret>}
+
+map global insert <tab> -docstring "select next snippet placeholder" %{<a-;>:try lsp-snippets-select-next-placeholders catch %{ execute-keys -with-hooks <lt>tab> }<ret>}
+
+# hook -group enable-lsp global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %{
+#     lsp-enable-window
+#     lsp-auto-signature-help-enable
+# }
+
+
+# clipboard
+define-command -docstring "get system clipboard" \
+clip-get %{ set-register dquote %sh{ wl-paste -n } }
+
+define-command -docstring "set system clipboard" \
+clip-copy %{ execute-keys %{<esc><a-|>wl-copy -n<ret>} }
+
+declare-user-mode environment
+map global user        e -docstring "enter environment mode" %{<esc>: enter-user-mode environment<ret>}
+map global environment c -docstring "copy selection to environment clipboard" %{<esc>: clip-copy<ret>}
+map global environment p -docstring "set default register to environment clipboard" %{<esc>: clip-get<ret>}
+
+
+# spell (requires aspell program)
+declare-user-mode spell
+map global user  s -docstring "enter spell mode" %{<esc>: enter-user-mode spell<ret>}
+map global spell s -docstring "spell replace word" %{<esc>: spell-replace<ret>}
+map global spell a -docstring "spell add word to dictionary" %{<esc>: spell-add<ret>}
+map global spell o -docstring "spell check entire buffer" %{<esc>: spell<ret>}
+map global spell c -docstring "spell check clear" %{<esc>: spell-clear<ret>}
+map global spell n -docstring "spell next" %{<esc>: spell-next<ret>}
+map global spell p -docstring "spell previous" %{<esc>: spell-prev<ret>}
+
+# operator highlighting
+hook -group operator-highlight global WinCreate .* %{
+    add-highlighter window/operator regex %{\W} 0:operator
+}
