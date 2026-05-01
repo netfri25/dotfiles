@@ -28,13 +28,13 @@ evaluate-commands %sh{
     set-face global module ${white}
     set-face global function @variable
     set-face global comment ${comment}+i
-    set-face global documentation ${comment}
+    set-face global documentation ${white}+d
     set-face global operator ${comment}
     set-face global delimiter ${comment}
 
     # For markup
-    set-face global title ${white}+b
-    set-face global header ${white}
+    set-face global title ${accent}+b
+    set-face global header ${white}+b
     set-face global block ${fg}
     set-face global mono ${fg}
     set-face global link ${accent}+u
@@ -63,8 +63,8 @@ evaluate-commands %sh{
 
     set-face global StatusLine ${white},${blackish}
     set-face global StatusLineMode ${white}+b
-    set-face global StatusLineInfo ${accent}+b
-    set-face global StatusLineValue ${constant}+b
+    set-face global StatusLineInfo ${accent}+bd
+    set-face global StatusLineValue ${constant}+bd
     set-face global StatusCursor ${bg},${fg}
     set-face global Prompt @keyword
 
