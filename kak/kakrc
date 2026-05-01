@@ -14,12 +14,6 @@ set-face global Whitespace rgb:ff0000+fa
 # enum(clippy|cat|dilbert|none|off)
 set-option global ui_options terminal_assistant=none
 
-# convert tabs to spaces
-hook -group tab-to-spaces global InsertChar \t %{
-    execute-keys -draft h@
-}
-
-
 declare-user-mode comment
 
 map global user    c -docstring "enter comment mode" %{<esc>: enter-user-mode comment<ret>}
@@ -59,11 +53,11 @@ set-option global indentwidth 4
 # expandtab - use space for everything. Tab will insert %opt{indentwidth} amount of spaces, and > will indent with spaces.
 # smarttab - indent with tab, align with space. Tab will insert the \t character if your cursor is inside an indentation area, e.g., before any non-whitespace character, and insert spaces if the cursor is after any non-whitespace character. Aligning cursors with & uses space.
 # autoconfigtab - choose the above based upon one of the existing settings (see later section).
-
 plug "andreyorst/smarttab.kak" defer smarttab %{
     set-option global softtabstop 4
 } config %{
     hook global WinSetOption filetype=.* expandtab
+    hook global WinSetOption filetype=makefile noexpandtab
 }
 
 
@@ -78,6 +72,12 @@ map global insert <tab> -docstring "select next snippet placeholder" %{<a-;>:try
 #     lsp-enable-window
 #     lsp-auto-signature-help-enable
 # }
+
+
+# let everyone on discord know that I use Kakoune
+plug "thacuber2a03/kakoune-discord" do %{ cargo install --path . --force } %{
+    discord-presence-enable
+}
 
 
 # clipboard
@@ -103,7 +103,8 @@ map global spell c -docstring "spell check clear" %{<esc>: spell-clear<ret>}
 map global spell n -docstring "spell next" %{<esc>: spell-next<ret>}
 map global spell p -docstring "spell previous" %{<esc>: spell-prev<ret>}
 
+
 # operator highlighting
 hook -group operator-highlight global WinCreate .* %{
-    add-highlighter window/operator regex %{\W} 0:operator
+    add-highlighter -override window/operator regex %{\W} 0:operator
 }
