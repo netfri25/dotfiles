@@ -106,5 +106,5 @@ map global spell p -docstring "spell previous" %{<esc>: spell-prev<ret>}
 
 # operator highlighting
 hook -group operator-highlight global WinCreate .* %{
-    add-highlighter -override window/operator regex %{\W} 0:operator
+    add-highlighter -override window/operator regex '[-+*/|&%^$@!~#,.?=<>:;{}()[\]]' 0:operator
 }
