@@ -7,9 +7,6 @@ set-option global modelinefmt '%val{bufname} %val{cursor_line}:%val{cursor_char_
 set-option global autocomplete prompt
 
 add-highlighter global/number-line number-lines -relative -hlcursor -min-digits 3
-add-highlighter global/trailing-whitespaces show-whitespaces -only-trailing -lf ''
-
-set-face global Whitespace rgb:ff0000+fa
 
 # enum(clippy|cat|dilbert|none|off)
 set-option global ui_options terminal_assistant=none
@@ -20,6 +17,10 @@ map global user    c -docstring "enter comment mode" %{<esc>: enter-user-mode co
 map global comment c -docstring "comment line" %{<esc>: comment-line<ret>}
 map global comment b -docstring "comment block" %{<esc>: comment-block<ret>}
 
+
+# whitespace handling
+add-highlighter global/trailing-whitespaces regex '\h+$' 0:Whitespace
+set-face global Whitespace rgb:880000,rgb:880000+fa
 
 define-command -docstring "select trailing whitespaces from selection" \
 select-trailing-whitespace %{
@@ -67,6 +68,27 @@ evaluate-commands %sh{kak-lsp}
 map global user l -docstring "enter lsp mode" %{<esc>: enter-user-mode lsp<ret>}
 
 map global insert <tab> -docstring "select next snippet placeholder" %{<a-;>:try lsp-snippets-select-next-placeholders catch %{ execute-keys -with-hooks <lt>tab> }<ret>}
+
+
+hook global BufSetOption filetype=python %{
+    set-option buffer lsp_servers %{}
+
+    set-option -add buffer lsp_servers %{
+        [pyright-langserver]
+        root_globs = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json", ".git", ".hg"]
+        args = ["--stdio"]
+    }
+
+    set-option -add buffer lsp_servers %{
+        [ruff]
+        args = ["server", "--quiet"]
+        root_globs = ["pyproject.toml", "setup.py", "poetry.lock", ".git", ".hg"]
+        settings_section = "_"
+        # [ruff.settings._.globalSettings]
+        # organizeImports = true
+        # fixAll = true
+    }
+}
 
 # hook -group enable-lsp global WinSetOption filetype=(rust|python|go|javascript|typescript|c|cpp) %{
 #     lsp-enable-window

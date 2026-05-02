@@ -10,6 +10,7 @@ $env.PATH ++= [
     /home/netfri/.local/bin
     /home/netfri/.cabal/bin
     /home/netfri/.ghcup/bin
+    /home/netfri/.config/emacs/bin
 ]
 
 source /tmp/.zoxide.nu
@@ -19,7 +20,7 @@ alias nvd = neovide
 
 $env.config.completions.algorithm = "fuzzy"
 
-$env.config.buffer_editor = "nvim"
+$env.config.buffer_editor = "kak"
 
 $env.config.history.sync_on_enter = false
 $env.config.history.file_format = "sqlite"
