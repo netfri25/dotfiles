@@ -108,3 +108,15 @@ map global spell p -docstring "spell previous" %{<esc>: spell-prev<ret>}
 hook -group operator-highlight global WinCreate .* %{
     add-highlighter -override window/operator regex '[-+*/|&%^$@!~#,.?=<>:;{}()[\]]' 0:operator
 }
+
+
+# auto indent rules
+hook global -group keep-indent-custom InsertChar \n %{
+    # preserve previous line indent
+    try %{ execute-keys -draft <semicolon> K <a-&> }
+    # cleanup trailing whitespaces from previous line
+    try %{ execute-keys -draft k x s \h+$ <ret> d }
+}
+
+
+set-option global disabled_hooks '.*-(indent|insert)'
