@@ -70,6 +70,17 @@ map global user l -docstring "enter lsp mode" %{<esc>: enter-user-mode lsp<ret>}
 
 map global insert <tab> -docstring "select next snippet placeholder" %{<a-;>:try lsp-snippets-select-next-placeholders catch %{ execute-keys -with-hooks <lt>tab> }<ret>}
 
+define-command -docstring "enable lsp in the current window" \
+lew %{
+    lsp-enable-window
+    lsp-auto-signature-help-enable
+}
+
+define-command -docstring "disable lsp in the current window" \
+ldw %{
+    lsp-disable-window
+    lsp-auto-signature-help-disable
+}
 
 hook global BufSetOption filetype=python %{
     set-option buffer lsp_servers %{}
