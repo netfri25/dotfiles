@@ -5,6 +5,7 @@ set-option global scrolloff 5,10
 set-option global completers word=all filename
 set-option global modelinefmt '%val{bufname} %val{cursor_line}:%val{cursor_char_column} {{context_info}} {{mode_info}} - %val{client}@[%val{session}]'
 set-option global autocomplete prompt
+set-option global grepcmd 'rg --vimgrep'
 
 add-highlighter global/number-line number-lines -relative -hlcursor -min-digits 3
 
