@@ -6,7 +6,8 @@ end
 
 return {
     'saghen/blink.cmp',
-    lazy = false,
+    lazy = true,
+    event = 'VeryLazy',
 
     -- use a release tag to download pre-built binaries
     version = '1.*',
