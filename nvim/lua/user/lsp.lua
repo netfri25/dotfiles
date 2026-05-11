@@ -34,6 +34,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
             function() vim.lsp.buf.format({ async = true }) end,
             { silent = true, desc = 'format buffer', buffer = args.buf }
         )
+
+        vim.keymap.set(
+            'n',
+            'gd',
+            vim.lsp.buf.definition,
+            { silent = true, desc = 'format buffer', buffer = args.buf }
+        )
     end
 })
 
