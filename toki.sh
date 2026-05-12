@@ -5,4 +5,4 @@ if [[ "$#" -ne 1 ]]; then
     exit 1
 fi
 
-wl-paste -np | sitelen-ucsur "$1" | waytyper
+wl-paste -np | sitelen-ucsur "$1" | timeout 3s waytyper
