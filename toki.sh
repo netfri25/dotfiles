@@ -5,4 +5,5 @@ if [[ "$#" -ne 1 ]]; then
     exit 1
 fi
 
+# timeout to prevent hanging on non-supported applications
 wl-paste -np | sitelen-ucsur "$1" | timeout 3s waytyper
