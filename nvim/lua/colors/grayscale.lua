@@ -45,8 +45,8 @@ M.groups = {
     NeogitDiffContextHighlight = { link = "NeogitDiffContext" },
 
     -- Syntax groups
-    Special     = { fg = M.colors.white, bold = true },
-    Keyword     = { link = "Special" },
+    Special     = { fg = M.colors.white },
+    Keyword     = { fg = M.colors.white, bold = true },
     Identifier  = { fg = M.colors.fg },
     Operator    = { fg = M.colors.comment },
     Comment     = { fg = M.colors.comment, italic = true },
