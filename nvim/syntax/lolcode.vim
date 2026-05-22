@@ -13,22 +13,43 @@ syn region LolMultiComment start=/OBTW/ end=/TLDR/
 syn match LolLineComment 'BTW.*$'
 
 " syn match LolKeyword "I IZ"
-syn keyword LolKeyword IZ
 syn match LolKeyword "ITZ"
 syn match LolKeyword "ITZ A"
 syn match LolKeyword "ITZ LIEK A"
 syn match LolKeyword "IS A"
 syn match LolKeyword "IM LIEK"
-syn keyword LolKeyword R
+syn match LolKeyword "CAN HAS"
 syn keyword LolKeyword NOW
 syn keyword LolKeyword A
-syn keyword LolKeyword AN
 syn keyword LolKeyword MAEK
-syn keyword LolKeyword YR
 syn keyword LolKeyword PLZ
 syn keyword LolKeyword MKAY
-
-syn match LolVarDec "HAS A"
+syn match LolKeyword "WTF?"
+syn match LolKeyword "O RLY?"
+syn match LolKeyword "YA RLY"
+syn match LolKeyword "NO WAI"
+syn match LolKeyword "FOUND YR"
+syn match LolKeyword "FOUND UR"
+" syn match LolKeyword "HOW DUZ I"
+syn match LolKeyword "HOW IZ"
+syn match LolKeyword "IF U SAY SO"
+syn match LolKeyword "AWSUM THX"
+syn match LolKeyword "O NOES"
+syn match LolKeyword "O HAI IM"
+syn match LolKeyword "KTHX"
+syn match LolKeyword "HAI"
+syn match LolKeyword "KTHXBYE"
+syn match LolKeyword "SKIP DIS"
+syn match LolKeyword "HAS A"
+syn keyword LolKeyword MEBBE
+syn keyword LolKeyword OIC
+syn keyword LolKeyword OMG
+syn keyword LolKeyword OMGWTF
+syn keyword LolKeyword GTFO
+syn keyword LolKeyword TIL
+syn keyword LolKeyword WILE
+syn match LolKeyword "IM IN YR "
+syn match LolKeyword "IM OUTTA YR "
 
 syn match LolSpecChar ":)"
 syn match LolSpecChar ":>"
@@ -38,28 +59,6 @@ syn match LolSpecChar "::"
 
 syn region LolString start=+"+ end=+"+ contains=LolSpecChar
 
-syn match LolBlock "WTF?"
-syn match LolBlock "O RLY?"
-syn match LolBlock "YA RLY"
-syn match LolBlock "NO WAI"
-syn match LolBlock "FOUND YR"
-syn match LolBlock "FOUND UR"
-" syn match LolBlock "HOW DUZ I"
-syn match LolBlock "HOW IZ"
-syn match LolBlock "IF U SAY SO"
-syn match LolBlock "AWSUM THX"
-syn match LolBlock "O NOES"
-syn match LolBlock "O HAI IM"
-syn match LolBlock "KTHX"
-syn match LolBlock "HAI"
-syn match LolBlock "KTHXBYE"
-syn match LolBlock "SKIP DIS"
-syn keyword LolBlock MEBBE
-syn keyword LolBlock OIC
-syn keyword LolBlock OMG
-syn keyword LolBlock OMGWTF
-syn keyword LolBlock GTFO
-
 syn keyword LolType
 			\ TROOF YARN NUMBR NUMBAR NOOB BUKKIT FUNKSHUN
 
@@ -68,12 +67,6 @@ syn keyword LolBool WIN FAIL
 syn match LolNum '\<[0-9]\d*'
 " syn match LolNum '[^A-Za-z_][+-]\?\d\+\.\d*'
 
-syn match LolInclude "CAN HAS [A-Za-z]\+?"
-
-syn keyword LolRepeat TIL
-syn keyword LolRepeat WILE
-syn match LolRepeat "IM IN YR "
-syn match LolRepeat "IM OUTTA YR "
 
 syn keyword LolBaseFunc
 			\ VISIBLE INVISIBLE GIMMEH
@@ -81,36 +74,29 @@ syn keyword LolBaseFunc
 syn keyword LolSpecial
             \ I IT ME parent
 
-syn keyword LolFunc
-			\ SUM DIFF PRODUKT QUOSHUNT MOD UPPIN NERFIN LOLG POWR SMOOSH BIGGR SMALLR BOTH EITHER WON NOT ALL ANY SAEM DIFFRINT
-
-syn keyword LolComparator
-			\ OF SRS
-
 syn match LolOperator "'Z"
 
+syn keyword LolArith
+			\ OF SUM DIFF PRODUKT QUOSHUNT MOD UPPIN NERFIN LOLG POWR SMOOSH BIGGR SMALLR BOTH EITHER WON NOT ALL ANY SAEM DIFFRINT
+
+syn keyword LolComparator
+			\ SRS IZ AN MKAY YR R
+
 """ Defining highlighting ---
-command -nargs=+ HiLink hi link <args>
-
-HiLink LolMultiComment Comment
-HiLink LolLineComment Comment
-HiLink LolOperator Title
-HiLink LolKeyword Statement
-HiLink LolEscapedChar SpecialChar
-HiLink LolBool Boolean
-HiLink LolNum Number
-HiLink LolString String
-HiLink LolInclude Include
-HiLink LolRepeat Delimiter
-HiLink LolBaseFunc Function
-HiLink LolSpecChar Special
-HiLink LolVarDec StorageClass
-HiLink LolBlock Delimiter
-HiLink LolSpecial Special
-HiLink LolFunc PreProc
-HiLink LolComparator Title
-HiLink LolType Type
-
-delcommand HiLink
+hi link LolMultiComment Comment
+hi link LolLineComment  Comment
+hi link LolOperator     Operator
+hi link LolKeyword      Keyword
+hi link LolSpecChar     SpecialChar
+hi link LolBool         Boolean
+hi link LolNum          Number
+hi link LolString       String
+hi link LolBaseFunc     Keyword
+hi link LolBlock        Delimiter
+hi link LolSpecial      Type
+hi link LolOperator     Operator
+hi link LolComparator   Special
+hi link LolType         Type
+hi link LolArith        Type
 
 let b:current_syntax="lolcode"
