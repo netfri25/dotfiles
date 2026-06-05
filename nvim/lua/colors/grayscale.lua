@@ -18,6 +18,7 @@ M.groups = {
     Normal      = { fg = M.colors.fg, bg = M.colors.bg },
     NormalFloat = { link = "Normal" },
     WinSeparator = { link = "Normal" },
+    Pmenu = { link = "Normal" },
 
     LineNr          = { fg = M.colors.comment },
     CursorLine      = { bg = M.colors.bg },
