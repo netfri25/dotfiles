@@ -1,4 +1,5 @@
 default-timeout=10000
+font=Varela Round, nasin-nanpa
 
 [mode=dnd]
 invisible=1
