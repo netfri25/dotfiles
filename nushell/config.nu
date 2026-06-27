@@ -1,16 +1,11 @@
 $env.XBPS_DISTDIR = "/home/netfri/.void-packages"
 $env.MANPAGER = "nvim +Man!"
 
-$env._JAVA_AWT_WM_NONREPARENTING = 1
-$env.AWT_TOOLKIT = "MToolkit"
-$env.GTK_THEME = "Adwaita:dark"
-
 $env.PATH ++= [
     /home/netfri/.cargo/bin
     /home/netfri/.local/bin
     /home/netfri/.cabal/bin
     /home/netfri/.ghcup/bin
-    /home/netfri/.config/emacs/bin
 ]
 
 source /tmp/.zoxide.nu
@@ -20,7 +15,7 @@ alias nvd = neovide
 
 $env.config.completions.algorithm = "fuzzy"
 
-$env.config.buffer_editor = "kak"
+$env.config.buffer_editor = "nvim"
 
 $env.config.history.sync_on_enter = false
 $env.config.history.file_format = "sqlite"

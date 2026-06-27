@@ -35,6 +35,10 @@ export GNOME_KEYRING_CONTROL
 export TERMINAL=foot
 export XCURSOR_THEME=GoogleDot-Black
 export XCURSOR_SIZE=24
+export QT_QPA_PLATFORMTHEME=qt6ct
+export _JAVA_AWT_WM_NONREPARENTING=1
+export AWT_TOOLKIT=MToolkit
+export GTK_THEME=Adwaita:dark
 
 # sound
 pipewire &
