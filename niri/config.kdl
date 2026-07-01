@@ -136,7 +136,7 @@ overview {
 
 spawn-sh-at-startup "wl-paste --type text --watch cliphist store"
 spawn-sh-at-startup "wl-paste --type image --watch cliphist store"
-spawn-sh-at-startup "bread-content -b BAT1 -g card0 -t hwmon7 -w wlp98s0 | bread --font 'Iosevka Simple'"
+spawn-sh-at-startup "bread-content -b BAT1 -g card0 -t acpitz -w wlp98s0 | bread --font 'Iosevka Simple'"
 spawn-at-startup "/usr/libexec/xfce-polkit"
 
 hotkey-overlay {
