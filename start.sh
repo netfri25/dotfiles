@@ -33,6 +33,7 @@ export GNOME_KEYRING_CONTROL
 
 # other env
 export TERMINAL=foot
+export LAUNCHER=fuzzel
 export XCURSOR_THEME=GoogleDot-Black
 export XCURSOR_SIZE=24
 export QT_QPA_PLATFORMTHEME=qt6ct
