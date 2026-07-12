@@ -122,7 +122,7 @@ syn keyword qbeInstruction cast
             \ ret
 
 " Keywords.
-syn keyword qbeKeyword align data env export function section type
+syn keyword qbeKeyword align data env export extern function section type dbgfile dbgloc
 
 " Misc syntax.
 syn region qbeComment start="#" end="$"
@@ -136,7 +136,7 @@ syn match qbeNumber "\v<\d+"
 hi def link qbeComment Comment
 hi def link qbeEscape Special
 hi def link qbeFloat Number
-hi def link qbeInstruction Function
+hi def link qbeInstruction Keyword
 hi def link qbeKeyword Keyword
 hi def link qbeNumber Number
 hi def link qbeString String
