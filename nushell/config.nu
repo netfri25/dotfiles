@@ -1,11 +1,9 @@
 $env.XBPS_DISTDIR = "/home/netfri/.void-packages"
 $env.MANPAGER = "nvim +Man!"
 
-$env.PATH ++= [
-    /home/netfri/.cargo/bin
-    /home/netfri/.local/bin
-    /home/netfri/.cabal/bin
-    /home/netfri/.ghcup/bin
+$env.PATH = $env.PATH | append [
+  /home/netfri/.cargo/bin
+  /home/netfri/.local/bin
 ]
 
 source /tmp/.zoxide.nu
@@ -72,14 +70,14 @@ $env.config.color_config.shape_globpattern = "white"
 $env.config.color_config.shape_externalarg = "white"
 
 $env.PROMPT_COMMAND = {||
-    let status = (if ($env.LAST_EXIT_CODE != 0) { $"(ansi red)[($env.LAST_EXIT_CODE)]" } else { '' })
-    let user = $"(ansi dark_gray)($env.USER)"
-    let directory = $"(ansi green)($env.PWD | path split | reverse | take 2 | reverse | path join)"
-    let git_branch = $"(ansi reset)(try { git branch --show-current err> /dev/null })"
-    let indicator = (if (is-admin) { $"(ansi red)#" } else { $"(ansi reset))" })
+  let status = (if ($env.LAST_EXIT_CODE != 0) { $"(ansi red)[($env.LAST_EXIT_CODE)]" } else { '' })
+  let user = $"(ansi dark_gray)($env.USER)"
+  let directory = $"(ansi green)($env.PWD | path split | reverse | take 2 | reverse | path join)"
+  let git_branch = $"(ansi reset)(try { git branch --show-current err> /dev/null })"
+  let indicator = (if (is-admin) { $"(ansi red)#" } else { $"(ansi reset))" })
 
-    let prompt = ([$user $directory $git_branch $status $indicator] | where {|item| ($item | ansi strip) != ''} | str join ' ')
-    $"(ansi reset)($prompt) "
+  let prompt = ([$user $directory $git_branch $status $indicator] | where {|item| ($item | ansi strip) != ''} | str join ' ')
+  $"(ansi reset)($prompt) "
 }
 
 $env.PROMPT_COMMAND_RIGHT = {||}
@@ -95,39 +93,39 @@ $env.TRANSIENT_PROMPT_MULTILINE_INDICATOR = $env.PROMPT_MULTILINE_INDICATOR
 $env.TRANSIENT_PROMPT_COMMAND_RIGHT = $env.PROMPT_COMMAND_RIGHT
 
 let fish_completer = {|spans|
-    fish --command $"complete '--do-complete=($spans | str replace --all "'" "\\'" | str join ' ')'"
-    | from tsv --flexible --noheaders --no-infer
-    | rename value description
-    | update value {|row|
-        let value = $row.value
-        let need_quote = ['\' ',' '[' ']' '(' ')' ' ' '\t' "'" '"' "`"] | any {$in in $value}
-        if ($need_quote and ($value | path exists)) {
-            let expanded_path = if ($value starts-with ~) {$value | path expand --no-symlink} else {$value}
-            $'"($expanded_path | str replace --all "\"" "\\\"")"'
-        } else {$value}
-    }
+  fish --command $"complete '--do-complete=($spans | str replace --all "'" "\\'" | str join ' ')'"
+  | from tsv --flexible --noheaders --no-infer
+  | rename value description
+  | update value {|row|
+    let value = $row.value
+    let need_quote = ['\' ',' '[' ']' '(' ')' ' ' '\t' "'" '"' "`"] | any {$in in $value}
+    if ($need_quote and ($value | path exists)) {
+      let expanded_path = if ($value starts-with ~) {$value | path expand --no-symlink} else {$value}
+      $'"($expanded_path | str replace --all "\"" "\\\"")"'
+    } else {$value}
+  }
 }
 
 # This completer will use carapace by default
 let external_completer = {|spans|
-    let expanded_alias = scope aliases
-    | where name == $spans.0
-    | get -o 0.expansion
+  let expanded_alias = scope aliases
+  | where name == $spans.0
+  | get -o 0.expansion
 
-    let spans = if $expanded_alias != null {
-        $spans
-        | skip 1
-        | prepend ($expanded_alias | split row ' ' | take 1)
-    } else {
-        $spans
-    }
+  let spans = if $expanded_alias != null {
+    $spans
+    | skip 1
+    | prepend ($expanded_alias | split row ' ' | take 1)
+  } else {
+    $spans
+  }
 
-    do $fish_completer $spans
+  do $fish_completer $spans
 }
 
 $env.config.completions.external = {
-    enable: true
-    completer: $external_completer
+  enable: true
+  completer: $external_completer
 }
 
 def "nu-complete zoxide path" [context: string] {
