@@ -101,7 +101,7 @@ M.groups = {
     ["@property"]           = { link = "Identifier" },
 
     ["@function"]           = { link = "Function" },
-    ["@function.builtin"]   = { link = "Function" },
+    ["@function.builtin"]   = { link = "Keyword" },
     ["@function.call"]      = { fg = M.colors.fg, bold = true },
     ["@function.macro"]     = { link = "Macro" },
 
