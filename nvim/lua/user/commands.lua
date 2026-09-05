@@ -21,6 +21,12 @@ vim.api.nvim_create_autocmd("User", {
 })
 
 vim.api.nvim_create_autocmd('FileType', {
+    desc = 'Color column for Rust files',
+    pattern = 'rust',
+    command = 'setlocal colorcolumn=101',
+})
+
+vim.api.nvim_create_autocmd('FileType', {
     desc = 'Comment highlight for json files',
     pattern = 'json',
     command = 'syntax match Comment +\\/\\/.\\+$+',

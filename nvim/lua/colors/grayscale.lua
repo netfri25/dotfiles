@@ -9,6 +9,7 @@ M.colors = {
     constant    = "#a0b8a0",
     blackish    = "#202020",
     selection   = "#383838",
+    very_dark   = "#0c0c0c",
     diff_add    = "#68bb26",
     diff_del    = "#fb4934",
 }
@@ -19,6 +20,7 @@ M.groups = {
     NormalFloat = { link = "Normal" },
     WinSeparator = { link = "Normal" },
     Pmenu = { link = "Normal" },
+    ColorColumn = { bg = M.colors.blackish },
 
     LineNr          = { fg = M.colors.comment },
     CursorLine      = { bg = M.colors.bg },
