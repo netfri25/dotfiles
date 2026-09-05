@@ -37,7 +37,7 @@ syn region parInterpolation
       \          parNumber,parType,parInterpolation
 
 " numbers
-syn match parNumber /\v\<\d+(\.\d*([eE][+-]?\d+)?)?/
+syn match parNumber /\v<\d+(\.\d*([eE][+-]?\d+)?)?/
 
 " uppercase words
 syn match parType
