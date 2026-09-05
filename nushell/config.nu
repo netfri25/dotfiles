@@ -29,7 +29,7 @@ $env.config.display_errors.termination_signal = true
 $env.config.error_lines = 1
 $env.config.footer_mode = "auto"
 
-$env.config.table.mode = "light"
+$env.config.table.mode = "compact"
 $env.config.table.index_mode = "never"
 $env.config.table.show_empty = true
 $env.config.table.header_on_separator = false
