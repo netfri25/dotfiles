@@ -50,13 +50,13 @@ output "eDP-1" {
     mode "1920x1200@60.003"
     scale 1
     transform "normal"
-    position x=1920 y=0
+    position x=0 y=0
 }
 
 output "HDMI-A-1" {
     scale 1
     transform "normal"
-    position x=0 y=0
+    position x=-1920 y=0
     focus-at-startup
     // mode "1920x1080@143.998"
 }
