@@ -23,52 +23,7 @@
 --- Note: do not set `init_options` for this LS config, it will be automatically populated by the contents of settings["rust-analyzer"] per
 --- https://github.com/rust-lang/rust-analyzer/blob/eb5da56d839ae0a9e9f50774fa3eb78eb0964550/docs/dev/lsp-extensions.md?plain=1#L26.
 
-vim.lsp.config('rust_analyzer', {
-    settings = {
-        ['rust-analyzer'] = {
-            semanticHighlighting = {
-                nonStandardTokens = false
-            },
-
-            check = {
-                command = 'clippy'
-            },
-
-            checkOnSave = true,
-
-            inlayHints = {
-                maxLength = 255,
-            },
-
-            imports = {
-                granularity = {
-                    group = 'module',
-                },
-
-                preferPrelude = true,
-            },
-
-            completion = {
-                callable = {
-                    snippets = 'none'
-                },
-
-                fullFunctionSignatures = {
-                    enable = true,
-                },
-
-                postfix = {
-                    enable = false,
-                },
-            },
-
-            snippets = {
-                custom = {
-                },
-            },
-        }
-    }
-})
+vim.lsp.config('rust_analyzer', {})
 
 local function reload_workspace(bufnr)
     local clients = vim.lsp.get_clients { bufnr = bufnr, name = 'rust_analyzer' }
@@ -203,6 +158,47 @@ return {
     ---@type lspconfig.settings.rust_analyzer
     settings = {
         ['rust-analyzer'] = {
+            semanticHighlighting = {
+                nonStandardTokens = false
+            },
+
+            check = {
+                command = 'clippy'
+            },
+
+            checkOnSave = true,
+
+            inlayHints = {
+                maxLength = 255,
+            },
+
+            imports = {
+                granularity = {
+                    group = 'module',
+                },
+
+                preferPrelude = true,
+            },
+
+            completion = {
+                callable = {
+                    snippets = 'none'
+                },
+
+                fullFunctionSignatures = {
+                    enable = true,
+                },
+
+                postfix = {
+                    enable = false,
+                },
+            },
+
+            snippets = {
+                custom = {
+                },
+            },
+
             lens = {
                 debug = { enable = true },
                 enable = true,
