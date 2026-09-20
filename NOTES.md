@@ -23,4 +23,3 @@
     * [brightnessctl](https://github.com/Hummer12007/brightnessctl) (in xbps)
     * [dbus](https://dbus.freedesktop.org) (in xbps)
     * [gnome-keyring](https://gitlab.gnome.org/GNOME/gnome-keyring) (in xbps)
-    * [xfce-polkit](https://github.com/ncopa/xfce-polkit) (in xbps)
