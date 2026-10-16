@@ -93,6 +93,7 @@ end
 return {
     cmd = { 'rust-analyzer' },
     filetypes = { 'rust' },
+    single_file_support = true,
     root_dir = function(bufnr, on_dir)
         if not executable_exists('cargo') then
             return
