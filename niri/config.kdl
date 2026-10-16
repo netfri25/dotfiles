@@ -16,14 +16,14 @@ input {
         click-method "clickfinger"
         natural-scroll
         scroll-factor 0.5
-        accel-speed 0.4
+        accel-speed 0.35
         accel-profile "flat"
         scroll-method "two-finger"
         tap-button-map "left-right-middle"
     }
 
     mouse {
-        accel-speed -0.4
+        accel-speed -0.5
         accel-profile "flat"
     }
 
